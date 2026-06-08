@@ -14,56 +14,67 @@ const tools = [
     title: "Merge PDF",
     href: "/merge-pdf",
     description: "Combine multiple PDF files into one document.",
+    category: "Edit",
   },
   {
     title: "Split PDF",
     href: "/split-pdf",
     description: "Extract selected pages from a PDF.",
+    category: "Edit",
   },
   {
     title: "Image to PDF",
     href: "/image-to-pdf",
     description: "Convert JPG and PNG images into PDF.",
+    category: "Convert",
   },
   {
     title: "PDF to Image",
     href: "/pdf-to-image",
     description: "Convert PDF pages into PNG images.",
+    category: "Convert",
   },
   {
     title: "Rotate PDF",
     href: "/rotate-pdf",
     description: "Rotate all pages in your PDF easily.",
+    category: "Edit",
   },
   {
     title: "Remove Pages",
     href: "/remove-pages",
     description: "Delete unwanted pages from PDF files.",
+    category: "Edit",
   },
   {
     title: "Extract Pages",
     href: "/extract-pages",
     description: "Create a new PDF from selected pages.",
+    category: "Edit",
   },
   {
     title: "PDF Information",
     href: "/pdf-info",
     description: "View PDF pages and file details.",
+    category: "View",
   },
   {
     title: "Watermark PDF",
     href: "/watermark-pdf",
     description: "Add a watermark to your PDF.",
+    category: "Edit",
   },
   {
     title: "Compress PDF",
     href: "/compress-pdf",
     description: "Reduce PDF file size without losing quality.",
+    category: "Optimize",
   },
   {
     title: "Protect PDF",
     href: "/protect-pdf",
     description: "Add password protection to your PDF files.",
+    category: "Security",
   },
 ];
 
@@ -125,6 +136,7 @@ export default function Home() {
               title={tool.title}
               href={tool.href}
               description={tool.description}
+              category={tool.category}
             />
           ))}
         </div>

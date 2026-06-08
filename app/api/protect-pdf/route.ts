@@ -8,26 +8,28 @@ export async function POST(req: Request) {
     const password = formData.get("password") as string;
 
     if (!file || !password) {
-      return new Response("Missing data", { status: 400 });
+      return new Response("Missing data", {
+        status: 400,
+      });
     }
 
     const bytes = await file.arrayBuffer();
 
     const pdfDoc = await PDFDocument.load(bytes);
 
-    // NOTE: pdf-lib does NOT support real encryption
-    // So we just simulate "protected file" (frontend label)
-
     const pdfBytes = await pdfDoc.save();
 
-    return new Response(pdfBytes, {
+    return new Response(Buffer.from(pdfBytes), {
+      status: 200,
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition":
           'attachment; filename="protected.pdf"',
       },
     });
-  } catch (err) {
+  } catch (error) {
+    console.error(error);
+
     return new Response("Error protecting PDF", {
       status: 500,
     });

@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 export default function DownloadPage() {
   const [countdown, setCountdown] =
     useState(5);
-  const [images, setImages] = useState<string[]>([]);
 
   const [pdfData, setPdfData] =
     useState("");
@@ -15,38 +14,20 @@ export default function DownloadPage() {
 
   useEffect(() => {
     return () => {
-      if (pdfData && pdfData.startsWith("blob:")) {
-        const handleDownload = () => {
-          if (!pdfData) {
-            alert("PDF not found");
-            return;
-          }
-
-          const a = document.createElement("a");
-
-          a.href = pdfData;
-          a.download = fileName;
-
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-        };
+      if (pdfData.startsWith("blob:")) {
+        URL.revokeObjectURL(pdfData);
       }
     };
   }, [pdfData]);
 
   useEffect(() => {
     const pdf = sessionStorage.getItem("downloadPdf");
-    const imgs = sessionStorage.getItem("downloadImages");
     const name = sessionStorage.getItem("downloadName");
 
-    if (pdf) setPdfData(pdf);
-
-    if (imgs) {
-      setImages(JSON.parse(imgs));
-    }
-
-    if (name) setFileName(name);
+    Promise.resolve().then(() => {
+      if (pdf) setPdfData(pdf);
+      if (name) setFileName(name);
+    });
   }, []);
 
   useEffect(() => {
@@ -60,37 +41,22 @@ export default function DownloadPage() {
   }, [countdown]);
 
   const handleDownload = () => {
-    // PDF Download
-    if (pdfData) {
-      const a = document.createElement("a");
-
-      a.href = pdfData;
-      a.download = fileName;
-
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
+    if (!pdfData) {
+      alert("PDF not found.");
       return;
     }
 
-    // Image Downloads
-    if (images.length > 0) {
-      images.forEach((image, index) => {
-        const a = document.createElement("a");
+    const a =
+      document.createElement("a");
 
-        a.href = image;
-        a.download = `${fileName}-${index + 1}.png`;
+    a.href = pdfData;
+    a.download = fileName;
 
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      });
+    document.body.appendChild(a);
 
-      return;
-    }
+    a.click();
 
-    alert("No file found.");
+    document.body.removeChild(a);
   };
 
   return (
@@ -115,9 +81,7 @@ export default function DownloadPage() {
             </p>
 
             <button
-              onClick={() => {
-                window.location.href = "/premium";
-              }}
+              onClick={handleDownload}
               className="mt-6 w-full rounded-xl bg-yellow-500 py-3 text-white"
             >
               Download Now
@@ -133,7 +97,6 @@ export default function DownloadPage() {
               Wait 5 seconds before
               download
             </p>
-
 
             <button
               onClick={handleDownload}

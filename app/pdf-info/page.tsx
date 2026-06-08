@@ -37,12 +37,16 @@ export default function PdfInfoPage() {
     if (countdown === null) return;
 
     if (countdown === 0 && pendingInfo) {
-      setInfo(pendingInfo);
-      setPendingInfo(null);
-      setCountdown(null);
+      const data = pendingInfo;
+
+      setTimeout(() => {
+        setInfo(data);
+        setPendingInfo(null);
+        setCountdown(null);
+      }, 0);
+
       return;
     }
-
     const timer = setTimeout(() => {
       setCountdown((prev) => (prev ?? 1) - 1);
     }, 1000);

@@ -34,8 +34,8 @@ export async function POST(req: Request) {
 
     const pdfBytes = await newPdf.save();
 
-    // Return the Uint8Array directly; Response accepts ArrayBufferView
-    return new Response(pdfBytes, {
+    return new Response(Buffer.from(pdfBytes), {
+      status: 200,
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition":
