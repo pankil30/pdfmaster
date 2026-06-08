@@ -13,7 +13,7 @@ export default function OcrEditorPage() {
   const [error, setError] = useState("");
 
   const dropRef = useRef<HTMLDivElement>(null);
-
+ 
   const processFile = async (file: File) => {
     try {
       setLoading(true);
