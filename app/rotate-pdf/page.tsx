@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ToolLayout from "@/components/ToolLayout";
 import FileUpload from "@/components/FileUpload";
 import { Loader2 } from "lucide-react";
@@ -11,6 +11,8 @@ export default function RotatePdfPage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+
+    const [countdown, setCountdown] = useState<number | null>(null);
 
     const handleRotate = async () => {
         try {
@@ -34,29 +36,54 @@ export default function RotatePdfPage() {
             });
 
             if (!res.ok) {
-                throw new Error("Failed to rotate PDF");
+                throw new Error();
             }
 
             const blob = await res.blob();
-            const url = URL.createObjectURL(blob);
 
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "rotated.pdf";
-            a.click();
+            const reader = new FileReader();
 
-            URL.revokeObjectURL(url);
+            reader.onloadend = () => {
+                sessionStorage.setItem(
+                    "downloadPdf",
+                    reader.result as string
+                );
 
-            // ✅ Success yaha aayega
-            setSuccess("PDF rotated successfully!");
+                sessionStorage.setItem(
+                    "downloadName",
+                    `${file.name.replace(
+                        ".pdf",
+                        ""
+                    )}-rotated.pdf`
+                );
+
+                setCountdown(5);
+                setSuccess("PDF rotated successfully!");
+            };
+
+            reader.readAsDataURL(blob);
         } catch {
-            // ❌ Error yaha
             setError("Something went wrong.");
         } finally {
             setLoading(false);
         }
     };
+    useEffect(() => {
+        if (countdown === null) return;
 
+        if (countdown === 0) {
+            window.location.href = "/download";
+            return;
+        }
+
+        const timer = setTimeout(() => {
+            setCountdown((prev) =>
+                prev !== null ? prev - 1 : null
+            );
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [countdown]);
     return (
         <ToolLayout
             title="Rotate PDF"
@@ -100,13 +127,31 @@ export default function RotatePdfPage() {
                     <option value="180">180°</option>
                     <option value="270">270°</option>
                 </select>
+                {countdown !== null && countdown > 0 && (
+                    <div className="rounded-xl border border-green-200 bg-green-50 p-4 text-center">
+                        <p className="font-semibold text-green-700">
+                            PDF Ready
+                        </p>
 
+                        <p className="mt-2 text-3xl font-bold text-green-700">
+                            {countdown}s
+                        </p>
+
+                        <p className="text-sm text-gray-600">
+                            Opening download page...
+                        </p>
+                    </div>
+                )}
                 <button
                     onClick={handleRotate}
-                    disabled={loading}
+                    disabled={loading || countdown !== null}
                     className="rounded-xl bg-red-500 px-6 py-3 text-white hover:bg-red-600 disabled:opacity-50"
                 >
-                        {loading ? "Rotating..." : "Rotate PDF"}
+                    {loading
+                        ? "Rotating..."
+                        : countdown !== null
+                            ? `Opening download page in ${countdown}s`
+                            : "Rotate PDF"}
                 </button>
             </div>
         </ToolLayout>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ToolLayout from "@/components/ToolLayout";
 import FileUpload from "@/components/FileUpload";
 import Alert from "@/components/Alert";
@@ -10,12 +10,11 @@ export default function CompressPdfPage() {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [countdown, setCountdown] = useState<number | null>(null);
 
   const handleCompress = async () => {
     try {
       setError("");
-      setSuccess("");
 
       if (!file) {
         setError("Please select a PDF file.");
@@ -32,28 +31,53 @@ export default function CompressPdfPage() {
         body: formData,
       });
 
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        throw new Error();
+      }
 
       const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
 
+      const blobUrl = URL.createObjectURL(blob);
+      const downloadName = `${file.name.replace(
+        ".pdf",
+        ""
+      )}-compressed.pdf`;
+
+      // Trigger download immediately to avoid relying on sessionStorage/blob URLs
       const a = document.createElement("a");
-      a.href = url;
-
-      const name = file.name.replace(".pdf", "");
-      a.download = `${name}-compressed.pdf`;
-
+      a.href = blobUrl;
+      a.download = downloadName;
+      document.body.appendChild(a);
       a.click();
+      document.body.removeChild(a);
 
-      URL.revokeObjectURL(url);
+      // Release blob URL after download starts
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 60_000);
 
-      setSuccess("PDF compressed successfully!");
+      setLoading(false);
+      setCountdown(null);
     } catch {
       setError("Failed to compress PDF.");
-    } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (countdown === null || countdown <= 0) return;
+
+    const timer = setTimeout(() => {
+      setCountdown((prev) => {
+        if (prev === 1) {
+          window.location.href = "/download";
+          return 0;
+        }
+
+        return prev! - 1;
+      });
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [countdown]);
 
   return (
     <ToolLayout
@@ -63,24 +87,30 @@ export default function CompressPdfPage() {
       <div className="space-y-5">
         <FileUpload
           accept=".pdf"
-          onChange={(files) => {
-            setFile(files?.[0] || null);
-            setError("");
-            setSuccess("");
-          }}
+          onChange={(files) =>
+            setFile(files?.[0] || null)
+          }
         />
 
         {file && <FileInfo file={file} />}
 
-        {error && <Alert type="error" message={error} />}
-        {success && <Alert type="success" message={success} />}
+        {error && (
+          <Alert
+            type="error"
+            message={error}
+          />
+        )}
 
         <button
           onClick={handleCompress}
-          disabled={loading}
-          className="rounded-xl bg-red-500 px-6 py-3 text-white hover:bg-red-600 disabled:opacity-50"
+          disabled={loading || countdown !== null}
+          className="rounded-xl bg-red-500 px-6 py-3 text-white disabled:opacity-50"
         >
-          {loading ? "Compressing..." : "Compress PDF"}
+          {countdown !== null
+            ? `Opening download page in ${countdown}s`
+            : loading
+              ? "Compressing..."
+              : "Compress PDF"}
         </button>
       </div>
     </ToolLayout>

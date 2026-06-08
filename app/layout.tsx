@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +19,15 @@ export const metadata: Metadata = {
   title: {
     default: "PDFMaster",
     template: "%s | PDFMaster",
+  },
+  icons: {
+    icon: "/pd.png",
+    shortcut: "/pd.png",
+    apple: "/pd.png",
+    other: {
+      rel: "apple-touch-icon-precomposed",
+      url: "/pd.png",
+    },
   },
   description:
     "Free online PDF tools to merge, split, rotate, compress and convert PDFs instantly without signup.",
@@ -63,7 +74,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-gray-50 text-gray-900">
-        {children}
+        <Navbar />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
           strategy="afterInteractive"

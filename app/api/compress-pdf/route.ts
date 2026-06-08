@@ -6,27 +6,31 @@ export async function POST(req: Request) {
     const file = formData.get("file") as File;
 
     if (!file) {
-      return new Response("No file", { status: 400 });
+      return Response.json(
+        { error: "No file uploaded" },
+        { status: 400 }
+      );
     }
 
     const bytes = await file.arrayBuffer();
 
     const pdfDoc = await PDFDocument.load(bytes);
 
-    const compressedPdf = await pdfDoc.save({
-      useObjectStreams: false,
-    });
+    const pdfBytes = await pdfDoc.save();
 
-    return new Response(compressedPdf, {
+    return new Response(pdfBytes, {
+      status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition":
-          'attachment; filename="compressed.pdf"',
+        "Content-Disposition": 'attachment; filename="compressed.pdf"',
       },
     });
-  } catch (err) {
-    return new Response("Error compressing PDF", {
-      status: 500,
-    });
+  } catch (error) {
+    console.error(error);
+
+    return Response.json(
+      { error: "Failed to compress PDF" },
+      { status: 500 }
+    );
   }
 }

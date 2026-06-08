@@ -5,6 +5,7 @@ import ToolLayout from "@/components/ToolLayout";
 import FileUpload from "@/components/FileUpload";
 import Alert from "@/components/Alert";
 import FileInfo from "@/components/FileInfo";
+import { useEffect } from "react";
 
 export default function RemovePagesPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -12,6 +13,7 @@ export default function RemovePagesPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [countdown, setCountdown] = useState<number | null>(null);
 
   const handleRemove = async () => {
     try {
@@ -40,18 +42,26 @@ export default function RemovePagesPage() {
       });
 
       if (!res.ok) throw new Error();
-
       const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
 
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "pages-removed.pdf";
-      a.click();
+      const reader = new FileReader();
 
-      URL.revokeObjectURL(url);
+      reader.onloadend = () => {
+        sessionStorage.setItem(
+          "downloadPdf",
+          reader.result as string
+        );
 
-      setSuccess("Pages removed successfully!");
+        sessionStorage.setItem(
+          "downloadName",
+          `${file.name.replace(".pdf", "")}-pages-removed.pdf`
+        );
+
+        setLoading(false);
+        setCountdown(5);
+      };
+
+      reader.readAsDataURL(blob);
     } catch {
       setError("Something went wrong.");
     } finally {
@@ -59,6 +69,22 @@ export default function RemovePagesPage() {
     }
   };
 
+  useEffect(() => {
+    if (countdown === null) return;
+
+    if (countdown === 0) {
+      window.location.href = "/download";
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setCountdown((prev) =>
+        prev !== null ? prev - 1 : null
+      );
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [countdown]);
   return (
     <ToolLayout
       title="Remove PDF Pages"
@@ -89,10 +115,14 @@ export default function RemovePagesPage() {
 
         <button
           onClick={handleRemove}
-          disabled={loading}
+          disabled={loading || countdown !== null}
           className="rounded-xl bg-red-500 px-6 py-3 text-white hover:bg-red-600 disabled:opacity-50"
         >
-          {loading ? "Processing..." : "Remove Pages"}
+          {countdown !== null
+            ? `Opening download page in ${countdown}s`
+            : loading
+              ? "Processing..."
+              : "Remove Pages"}
         </button>
       </div>
     </ToolLayout>

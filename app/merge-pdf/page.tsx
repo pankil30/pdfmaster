@@ -4,12 +4,15 @@ import { useState } from "react";
 import ToolLayout from "@/components/ToolLayout";
 import FileUpload from "@/components/FileUpload";
 import { Loader2 } from "lucide-react";
+import { useEffect } from "react";
+
 
 export default function MergePdfPage() {
     const [files, setFiles] = useState<FileList | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+    const [countdown, setCountdown] = useState<number | null>(null);
     const handleMerge = async () => {
         try {
             setError("");
@@ -33,30 +36,52 @@ export default function MergePdfPage() {
             });
 
 
-            
+
             if (!res.ok) {
                 throw new Error("Failed to merge PDF");
             }
-
             const blob = await res.blob();
 
-            const url = URL.createObjectURL(blob);
+            const reader = new FileReader();
 
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "merged.pdf";
-            a.click();
+            reader.onloadend = () => {
+                sessionStorage.setItem(
+                    "downloadPdf",
+                    reader.result as string
+                );
 
-            URL.revokeObjectURL(url);
-            setSuccess("PDF merged successfully!");
+                sessionStorage.setItem(
+                    "downloadName",
+                    "merged.pdf"
+                );
+
+                setSuccess("PDF merged successfully!");
+                setLoading(false);
+                setCountdown(5);
+            };
+
+            reader.readAsDataURL(blob);
+
+            return;
         } catch {
-            // ❌ Error yaha
             setError("Something went wrong.");
-        } finally {
             setLoading(false);
         }
     };
+    useEffect(() => {
+        if (countdown === null) return;
 
+        if (countdown === 0) {
+            window.location.href = "/download";
+            return;
+        }
+
+        const timer = setTimeout(() => {
+            setCountdown((prev) => (prev ?? 1) - 1);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [countdown]);
     return (
         <ToolLayout
             title="Merge PDF"
@@ -85,16 +110,18 @@ export default function MergePdfPage() {
 
                 <button
                     onClick={handleMerge}
-                    disabled={loading}
+                    disabled={loading || countdown !== null}
                     className="rounded-xl bg-red-500 px-6 py-3 font-medium text-white hover:bg-red-600 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                    {loading ? (
+                    {countdown !== null ? (
+                        `Opening download page in ${countdown}s`
+                    ) : loading ? (
                         <span className="flex items-center gap-2">
                             <Loader2 className="h-4 w-4 animate-spin" />
-                            Rotating...
+                            Processing...
                         </span>
                     ) : (
-                        "Rotate PDF"
+                        "Merge PDF"
                     )}
                 </button>
             </div>

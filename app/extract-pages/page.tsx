@@ -5,6 +5,7 @@ import ToolLayout from "@/components/ToolLayout";
 import FileUpload from "@/components/FileUpload";
 import Alert from "@/components/Alert";
 import FileInfo from "@/components/FileInfo";
+import {useEffect} from "react";
 
 export default function ExtractPagesPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -12,6 +13,8 @@ export default function ExtractPagesPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [countdown, setCountdown] = useState<number | null>(null);
+  
 
   const handleExtract = async () => {
     try {
@@ -44,29 +47,45 @@ export default function ExtractPagesPage() {
         throw new Error();
       }
 
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
+     const blob = await res.blob();
 
-      const a = document.createElement("a");
+const reader = new FileReader();
 
-      a.href = url;
-      a.download = `${file.name.replace(
-        ".pdf",
-        ""
-      )}-extracted.pdf`;
+reader.onloadend = () => {
+  sessionStorage.setItem(
+    "downloadPdf",
+    reader.result as string
+  );
 
-      a.click();
+  sessionStorage.setItem(
+    "downloadName",
+    `${file.name.replace(".pdf", "")}-extracted.pdf`
+  );
 
-      URL.revokeObjectURL(url);
+  setLoading(false);
+  setCountdown(5);
+};
 
-      setSuccess("Pages extracted successfully!");
-    } catch {
-      setError("Something went wrong.");
-    } finally {
+reader.readAsDataURL(blob);
+    } catch (err) {
+      setError("Failed to extract pages.");
       setLoading(false);
     }
   };
+  useEffect(() => {
+  if (countdown === null) return;
 
+  if (countdown === 0) {
+    window.location.href = "/download";
+    return;
+  }
+
+  const timer = setTimeout(() => {
+    setCountdown((prev) => (prev ?? 1) - 1);
+  }, 1000);
+
+  return () => clearTimeout(timer);
+}, [countdown]);
   return (
     <ToolLayout
       title="Extract PDF Pages"
@@ -108,15 +127,17 @@ export default function ExtractPagesPage() {
           className="w-full rounded-xl border p-3"
         />
 
-        <button
-          onClick={handleExtract}
-          disabled={loading}
-          className="rounded-xl bg-red-500 px-6 py-3 text-white hover:bg-red-600"
-        >
-          {loading
-            ? "Processing..."
-            : "Extract Pages"}
-        </button>
+       <button
+  onClick={handleExtract}
+  disabled={loading || countdown !== null}
+  className="rounded-xl bg-red-500 px-6 py-3 text-white hover:bg-red-600 disabled:opacity-50"
+>
+  {countdown !== null
+    ? `Opening download page in ${countdown}s`
+    : loading
+    ? "Processing..."
+    : "Extract Pages"}
+</button>
       </div>
     </ToolLayout>
   );

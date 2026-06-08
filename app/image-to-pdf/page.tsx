@@ -4,12 +4,14 @@ import { useState } from "react";
 import ToolLayout from "@/components/ToolLayout";
 import FileUpload from "@/components/FileUpload";
 import { Loader2 } from "lucide-react";
+import { useEffect } from "react";
 
 export default function ImageToPdfPage() {
     const [files, setFiles] = useState<FileList | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+    const [countdown, setCountdown] = useState<number | null>(null);
 
     const handleConvert = async () => {
         try {
@@ -39,23 +41,49 @@ export default function ImageToPdfPage() {
 
             const blob = await res.blob();
 
-            const url = URL.createObjectURL(blob);
+            const reader = new FileReader();
 
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "images.pdf";
-            a.click();
+            reader.onloadend = () => {
+                sessionStorage.setItem(
+                    "downloadPdf",
+                    reader.result as string
+                );
 
-            URL.revokeObjectURL(url);
-            setSuccess("Images converted to PDF successfully!");
+                sessionStorage.setItem(
+                    "downloadName",
+                    "images.pdf"
+                );
+
+                setSuccess("Images converted to PDF successfully!");
+                setLoading(false);
+                setCountdown(5);
+            };
+
+            reader.readAsDataURL(blob);
+
+            return;
         } catch {
-            // ❌ Error yaha
             setError("Something went wrong.");
+            setLoading(false);
+
         } finally {
             setLoading(false);
         }
     };
+    useEffect(() => {
+        if (countdown === null) return;
 
+        if (countdown === 0) {
+            window.location.href = "/download";
+            return;
+        }
+
+        const timer = setTimeout(() => {
+            setCountdown((prev) => (prev ?? 1) - 1);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [countdown]);
     return (
         <ToolLayout
             title="Image to PDF"
@@ -98,16 +126,18 @@ export default function ImageToPdfPage() {
 
                 <button
                     onClick={handleConvert}
-                    disabled={loading}
+                    disabled={loading || countdown !== null}
                     className="rounded-xl bg-red-500 px-6 py-3 text-white hover:bg-red-600 disabled:opacity-50"
                 >
-                    {loading ? (
+                    {countdown !== null ? (
+                        `Opening download page in ${countdown}s`
+                    ) : loading ? (
                         <span className="flex items-center gap-2">
                             <Loader2 className="h-4 w-4 animate-spin" />
-                            Rotating...
+                            Processing...
                         </span>
                     ) : (
-                        "Rotate PDF"
+                        "Convert to PDF"
                     )}
                 </button>
             </div>

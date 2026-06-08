@@ -4,6 +4,7 @@ import { useState } from "react";
 import ToolLayout from "@/components/ToolLayout";
 import FileUpload from "@/components/FileUpload";
 import { Loader2 } from "lucide-react";
+import { useEffect } from "react";
 
 
 export default function SplitPdfPage() {
@@ -13,6 +14,7 @@ export default function SplitPdfPage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+    const [countdown, setCountdown] = useState<number | null>(null);
 
     const handleSplit = async () => {
         try {
@@ -44,16 +46,29 @@ export default function SplitPdfPage() {
                 throw new Error("Failed to split PDF");
             }
 
-            const blob = await res.blob();
-            const url = URL.createObjectURL(blob);
+           const blob = await res.blob();
 
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "split.pdf";
-            a.click();
+const reader = new FileReader();
 
-            URL.revokeObjectURL(url);
-            setSuccess("PDF split successfully!");
+reader.onloadend = () => {
+  sessionStorage.setItem(
+    "downloadPdf",
+    reader.result as string
+  );
+
+  sessionStorage.setItem(
+    "downloadName",
+    `${file.name.replace(
+      ".pdf",
+      ""
+    )}-split.pdf`
+  );
+
+  setSuccess("PDF split successfully!");
+  setCountdown(5);
+};
+
+reader.readAsDataURL(blob)
         } catch {
             // ❌ Error yaha
             setError("Something went wrong.");
@@ -61,7 +76,22 @@ export default function SplitPdfPage() {
             setLoading(false);
         }
     };
+useEffect(() => {
+  if (countdown === null) return;
 
+  if (countdown === 0) {
+    window.location.href = "/download";
+    return;
+  }
+
+  const timer = setTimeout(() => {
+    setCountdown((prev) =>
+      prev !== null ? prev - 1 : null
+    );
+  }, 1000);
+
+  return () => clearTimeout(timer);
+}, [countdown]);
     return (
         <ToolLayout
             title="Split PDF"
@@ -115,20 +145,22 @@ export default function SplitPdfPage() {
                     />
                 </div>
 
-                <button
-                    onClick={handleSplit}
-                    disabled={loading}
-                    className="rounded-xl bg-red-500 px-6 py-3 text-white hover:bg-red-600 disabled:opacity-50"
-                >
-                   {loading ? (
-  <span className="flex items-center gap-2">
-    <Loader2 className="h-4 w-4 animate-spin" />
-    Rotating...
-  </span>
-) : (
-  "Rotate PDF"
-)}
-                </button>
+             <button
+  onClick={handleSplit}
+  disabled={loading || countdown !== null}
+  className="rounded-xl bg-red-500 px-6 py-3 text-white hover:bg-red-600 disabled:opacity-50"
+>
+  {loading ? (
+    <span className="flex items-center gap-2">
+      <Loader2 className="h-4 w-4 animate-spin" />
+      Splitting...
+    </span>
+  ) : countdown !== null ? (
+    `Opening download page in ${countdown}s`
+  ) : (
+    "Split PDF"
+  )}
+</button>
             </div>
         </ToolLayout>
     );

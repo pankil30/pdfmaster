@@ -41,6 +41,36 @@ const tools = [
     description: "View PDF pages and file details.",
     category: "Information",
   },
+  {
+    title: "PDF to Image",
+    href: "/pdf-to-image",
+    description: "Convert PDF pages into PNG images.",
+    category: "Convert PDF",
+  },
+  {
+    title: "Watermark PDF",
+    href: "/watermark-pdf",
+    description: "Add a watermark to your PDF.",
+    category: "Edit PDF",
+  },
+  {
+    title: "Compress PDF",
+    href: "/compress-pdf",
+    description: "Reduce PDF file size online.",
+    category: "Optimize PDF",
+  },
+  {
+    title: "Protect PDF",
+    href: "/protect-pdf",
+    description: "Add password protection to your PDF files.",
+    category: "Security",
+  },
+  {
+    title: "Extract Pages",
+    href: "/extract-pages",
+    description: "Extract selected pages from a PDF.",
+    category: "Edit PDF",
+  },
 ];
 
 export default function ToolsPage() {
