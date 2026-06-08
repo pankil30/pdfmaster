@@ -12,24 +12,29 @@ export async function POST(req: Request) {
       );
     }
 
+    // Read uploaded file
     const bytes = await file.arrayBuffer();
 
+    // Load PDF
     const pdfDoc = await PDFDocument.load(bytes);
 
+    // Save PDF
     const pdfBytes = await pdfDoc.save();
 
-    return new Response(pdfBytes, {
+    // Return PDF
+    return new Response(Buffer.from(pdfBytes), {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": 'attachment; filename="compressed.pdf"',
+        "Content-Disposition":
+          'attachment; filename="compressed.pdf"',
       },
     });
   } catch (error) {
     console.error(error);
 
     return Response.json(
-      { error: "Failed to compress PDF" },
+      { error: "Failed to process PDF" },
       { status: 500 }
     );
   }
