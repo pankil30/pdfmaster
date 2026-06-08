@@ -76,6 +76,13 @@ const tools = [
     description: "Add password protection to your PDF files.",
     category: "Security",
   },
+  {
+  title: "OCR Editor",
+  description:
+    "Extract and edit text from images and PDFs",
+  href: "/ocr-editor",
+  category: "Edit",
+},
 ];
 
 export default function Home() {
