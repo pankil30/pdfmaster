@@ -17,7 +17,7 @@ export default function OcrEditorPage() {
   const processFile = async (file: File) => {
     try {
       setLoading(true);
-      setProgress(0);
+      setProgress(0); 
       setError("");
       setText("");
 
