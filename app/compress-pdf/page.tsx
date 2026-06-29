@@ -113,6 +113,254 @@ export default function CompressPdfPage() {
               : "Compress PDF"}
         </button>
       </div>
+      {/* ================= About Compress PDF ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+  <h2 className="mb-5 text-3xl font-bold">
+    Compress PDF Online
+  </h2>
+
+  <p className="mb-5 leading-8 text-gray-700">
+    Compress PDF files online to reduce file size while maintaining excellent
+    document quality. Whether you're sharing files by email, uploading
+    documents to websites, or saving storage space, our free PDF compressor
+    makes it fast and easy.
+  </p>
+
+  <p className="mb-5 leading-8 text-gray-700">
+    Upload your PDF, click the <strong>Compress PDF</strong> button, and let
+    our tool optimize your document. The compression process keeps text,
+    images, fonts, and formatting as close to the original as possible while
+    reducing the overall file size.
+  </p>
+
+  <p className="leading-8 text-gray-700">
+    The tool works directly in your browser and supports Windows, macOS,
+    Linux, Android, and iPhone. No software installation or registration is
+    required.
+  </p>
+</section>
+
+{/* ================= How It Works ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-6 text-3xl font-bold">
+How to Compress a PDF
+</h2>
+
+<div className="grid gap-5 md:grid-cols-2">
+
+<div className="rounded-lg border p-5">
+<h3 className="mb-2 text-lg font-semibold">
+Step 1
+</h3>
+
+<p className="text-gray-600">
+Upload your PDF document.
+</p>
+</div>
+
+<div className="rounded-lg border p-5">
+<h3 className="mb-2 text-lg font-semibold">
+Step 2
+</h3>
+
+<p className="text-gray-600">
+Click the Compress PDF button.
+</p>
+</div>
+
+<div className="rounded-lg border p-5">
+<h3 className="mb-2 text-lg font-semibold">
+Step 3
+</h3>
+
+<p className="text-gray-600">
+Wait while the file is optimized.
+</p>
+</div>
+
+<div className="rounded-lg border p-5">
+<h3 className="mb-2 text-lg font-semibold">
+Step 4
+</h3>
+
+<p className="text-gray-600">
+Download your compressed PDF.
+</p>
+</div>
+
+</div>
+
+</section>
+
+{/* ================= Features ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-6 text-3xl font-bold">
+Features
+</h2>
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+
+<div className="rounded-lg border p-4">
+✅ Reduce PDF File Size
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Preserve Text Quality
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Keep Images Clear
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Fast Compression
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Browser Based
+</div>
+
+<div className="rounded-lg border p-4">
+✅ No Watermark
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Secure Processing
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Mobile Friendly
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Free to Use
+</div>
+
+</div>
+
+</section>
+
+{/* ================= Benefits ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-5 text-3xl font-bold">
+Why Compress PDF Files?
+</h2>
+
+<p className="mb-5 leading-8 text-gray-700">
+Large PDF files can be difficult to email, upload, or share through messaging
+platforms. Compressing your PDF reduces its size, making it easier to send,
+store, and manage while maintaining readability and document quality.
+</p>
+
+<p className="mb-5 leading-8 text-gray-700">
+Students, businesses, teachers, government offices, and professionals use PDF
+compression to save storage space and meet file size limits on websites and
+email services.
+</p>
+
+<p className="leading-8 text-gray-700">
+Our tool automatically optimizes your document while preserving fonts,
+graphics, tables, and page formatting, providing an excellent balance between
+quality and file size.
+</p>
+
+</section>
+
+{/* ================= Common Uses ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-5 text-3xl font-bold">
+Common Uses
+</h2>
+
+<ul className="list-disc space-y-2 pl-6 leading-8 text-gray-700">
+<li>Email PDF documents with attachment size limits.</li>
+<li>Upload PDFs to websites with maximum file size restrictions.</li>
+<li>Reduce storage space on your computer or cloud storage.</li>
+<li>Share documents faster using messaging apps.</li>
+<li>Optimize reports, invoices, contracts, resumes, and presentations.</li>
+</ul>
+
+</section>
+
+{/* ================= Security ================= */}
+
+<section className="mt-12 rounded-xl bg-blue-50 p-8">
+
+<h2 className="mb-4 text-3xl font-bold">
+Privacy & Security
+</h2>
+
+<p className="leading-8 text-gray-700">
+Your privacy is important to us. Uploaded PDF files are processed securely
+and automatically removed after processing. We do not permanently store your
+documents, helping keep your personal and business information protected.
+</p>
+
+</section>
+
+{/* ================= FAQ ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-6 text-3xl font-bold">
+Frequently Asked Questions
+</h2>
+
+<div className="space-y-6">
+
+<div>
+<h3 className="font-semibold text-lg">
+Is this PDF compressor free?
+</h3>
+
+<p className="mt-2 text-gray-600">
+Yes. You can compress PDF documents online without any cost.
+</p>
+</div>
+
+<div>
+<h3 className="font-semibold text-lg">
+Will my PDF quality decrease?
+</h3>
+
+<p className="mt-2 text-gray-600">
+Our compression process is designed to reduce file size while maintaining
+good readability and preserving document formatting.
+</p>
+</div>
+
+<div>
+<h3 className="font-semibold text-lg">
+Can I compress large PDF files?
+</h3>
+
+<p className="mt-2 text-gray-600">
+Yes. Large PDF files can be compressed, subject to your site's upload limits.
+</p>
+</div>
+
+<div>
+<h3 className="font-semibold text-lg">
+Are my files secure?
+</h3>
+
+<p className="mt-2 text-gray-600">
+Yes. Files are processed securely and automatically removed after processing.
+</p>
+</div>
+
+</div>
+
+</section>
     </ToolLayout>
   );
 }

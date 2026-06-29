@@ -203,6 +203,178 @@ const handleFile = async (
           </div>
         )}
       </div>
+      {/* ================= About PDF to Image ================= */}
+
+<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+  <h2 className="mb-5 text-3xl font-bold">
+    Convert PDF to Images Online
+  </h2>
+
+  <p className="mb-5 leading-8 text-gray-700">
+    Our PDF to Image Converter allows you to convert every page of a PDF
+    document into high-quality PNG images in just a few seconds. The tool is
+    completely free and works directly in your browser without installing any
+    software.
+  </p>
+
+  <p className="mb-5 leading-8 text-gray-700">
+    Whether you need images for presentations, websites, social media,
+    printing, or document sharing, our converter preserves the original
+    quality, fonts, graphics, and layout of every PDF page.
+  </p>
+
+  <p className="leading-8 text-gray-700">
+    Simply upload your PDF, wait a few seconds while the pages are processed,
+    and download each page as a separate PNG image.
+  </p>
+</section>
+
+{/* ================= How It Works ================= */}
+
+<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+  <h2 className="mb-6 text-3xl font-bold">
+    How to Convert PDF to Images
+  </h2>
+
+  <div className="grid gap-5 md:grid-cols-2">
+
+    <div className="rounded-xl border p-5">
+      <h3 className="mb-2 font-semibold text-lg">
+        Step 1
+      </h3>
+
+      <p className="text-gray-600">
+        Select the PDF file from your device.
+      </p>
+    </div>
+
+    <div className="rounded-xl border p-5">
+      <h3 className="mb-2 font-semibold text-lg">
+        Step 2
+      </h3>
+
+      <p className="text-gray-600">
+        Upload the document to start processing.
+      </p>
+    </div>
+
+    <div className="rounded-xl border p-5">
+      <h3 className="mb-2 font-semibold text-lg">
+        Step 3
+      </h3>
+
+      <p className="text-gray-600">
+        Every PDF page will be converted into a PNG image.
+      </p>
+    </div>
+
+    <div className="rounded-xl border p-5">
+      <h3 className="mb-2 font-semibold text-lg">
+        Step 4
+      </h3>
+
+      <p className="text-gray-600">
+        Download all converted images instantly.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+{/* ================= Features ================= */}
+
+<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-6 text-3xl font-bold">
+Features
+</h2>
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+
+<div className="rounded-lg border p-4">
+✅ High Resolution PNG Images
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Fast Conversion
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Original Layout Preserved
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Secure Processing
+</div>
+
+<div className="rounded-lg border p-4">
+✅ No Watermark
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Browser Based
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Mobile Friendly
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Unlimited Usage
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Free Forever
+</div>
+
+</div>
+
+</section>
+
+{/* ================= Benefits ================= */}
+
+<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-5 text-3xl font-bold">
+Why Use PDF to Image?
+</h2>
+
+<p className="mb-5 leading-8 text-gray-700">
+Converting PDF pages into images is useful when you want to share content on
+social media, include pages in presentations, upload graphics to websites,
+or print individual pages. Images are also easier to preview and edit with
+most graphic software.
+</p>
+
+<p className="mb-5 leading-8 text-gray-700">
+Our converter keeps each page clear and sharp while preserving text,
+illustrations, charts, and photographs. The generated PNG files are suitable
+for both digital viewing and printing.
+</p>
+
+<p className="leading-8 text-gray-700">
+Since everything runs inside your browser, there is no need to install any
+desktop applications. Upload your PDF, convert it, and download the images
+within seconds.
+</p>
+
+</section>
+
+{/* ================= Privacy ================= */}
+
+<section className="mt-12 rounded-2xl bg-blue-50 p-8">
+
+<h2 className="mb-4 text-3xl font-bold">
+Safe & Secure
+</h2>
+
+<p className="leading-8 text-gray-700">
+Your privacy is important. Uploaded PDF files are processed securely and are
+not permanently stored. After conversion, files are automatically removed to
+help keep your information private.
+</p>
+
+</section>
     </div>
   );
 }

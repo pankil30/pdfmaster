@@ -13,11 +13,11 @@ export default function OcrEditorPage() {
   const [error, setError] = useState("");
 
   const dropRef = useRef<HTMLDivElement>(null);
- 
+
   const processFile = async (file: File) => {
     try {
       setLoading(true);
-      setProgress(0); 
+      setProgress(0);
       setError("");
       setText("");
 
@@ -316,7 +316,257 @@ export default function OcrEditorPage() {
 
           </div>
         </div>
+        {/* ================= About OCR Text Editor ================= */}
+
+        <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
+          <h2 className="mb-5 text-3xl font-bold text-gray-900 dark:text-white">
+            OCR Image to Text Converter
+          </h2>
+
+          <p className="mb-5 leading-8 text-gray-700 dark:text-gray-300">
+            Our free OCR (Optical Character Recognition) tool allows you to extract
+            editable text from images within seconds. Simply upload a photo,
+            screenshot, scanned document, receipt, invoice, business card, book page,
+            or handwritten note, and the OCR engine automatically detects and converts
+            the text into editable content.
+          </p>
+
+          <p className="mb-5 leading-8 text-gray-700 dark:text-gray-300">
+            After extraction, you can edit the recognized text directly in the editor,
+            copy it to the clipboard, or download it as a TXT or Microsoft Word (DOCX)
+            file. Everything happens in your browser, making the process fast,
+            convenient, and easy.
+          </p>
+
+          <p className="leading-8 text-gray-700 dark:text-gray-300">
+            The OCR editor works on Windows, macOS, Linux, Android, and iPhone without
+            requiring software installation.
+          </p>
+        </section>
+
+        {/* ================= How It Works ================= */}
+
+        <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
+
+          <h2 className="mb-6 text-3xl font-bold dark:text-white">
+            How to Extract Text from an Image
+          </h2>
+
+          <div className="grid gap-5 md:grid-cols-2">
+
+            <div className="rounded-xl border p-5 dark:border-zinc-700">
+              <h3 className="mb-2 text-lg font-semibold dark:text-white">
+                Step 1
+              </h3>
+
+              <p className="text-gray-600 dark:text-gray-400">
+                Upload, drag & drop, or paste an image.
+              </p>
+            </div>
+
+            <div className="rounded-xl border p-5 dark:border-zinc-700">
+              <h3 className="mb-2 text-lg font-semibold dark:text-white">
+                Step 2
+              </h3>
+
+              <p className="text-gray-600 dark:text-gray-400">
+                The OCR engine scans and recognizes the text.
+              </p>
+            </div>
+
+            <div className="rounded-xl border p-5 dark:border-zinc-700">
+              <h3 className="mb-2 text-lg font-semibold dark:text-white">
+                Step 3
+              </h3>
+
+              <p className="text-gray-600 dark:text-gray-400">
+                Review and edit the extracted text.
+              </p>
+            </div>
+
+            <div className="rounded-xl border p-5 dark:border-zinc-700">
+              <h3 className="mb-2 text-lg font-semibold dark:text-white">
+                Step 4
+              </h3>
+
+              <p className="text-gray-600 dark:text-gray-400">
+                Copy the text or download it as TXT or DOCX.
+              </p>
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* ================= Features ================= */}
+
+        <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
+
+          <h2 className="mb-6 text-3xl font-bold dark:text-white">
+            Features
+          </h2>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+
+            <div className="rounded-lg border p-4 dark:border-zinc-700">
+              ✅ OCR Image Recognition
+            </div>
+
+            <div className="rounded-lg border p-4 dark:border-zinc-700">
+              ✅ Drag & Drop Upload
+            </div>
+
+            <div className="rounded-lg border p-4 dark:border-zinc-700">
+              ✅ Paste Screenshots
+            </div>
+
+            <div className="rounded-lg border p-4 dark:border-zinc-700">
+              ✅ Live Text Editor
+            </div>
+
+            <div className="rounded-lg border p-4 dark:border-zinc-700">
+              ✅ Copy to Clipboard
+            </div>
+
+            <div className="rounded-lg border p-4 dark:border-zinc-700">
+              ✅ Download TXT
+            </div>
+
+            <div className="rounded-lg border p-4 dark:border-zinc-700">
+              ✅ Download DOCX
+            </div>
+
+            <div className="rounded-lg border p-4 dark:border-zinc-700">
+              ✅ Fast OCR Processing
+            </div>
+
+            <div className="rounded-lg border p-4 dark:border-zinc-700">
+              ✅ Free to Use
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* ================= Supported Images ================= */}
+
+        <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
+
+          <h2 className="mb-5 text-3xl font-bold dark:text-white">
+            Supported Image Types
+          </h2>
+
+          <p className="leading-8 text-gray-700 dark:text-gray-300">
+            This OCR tool works with screenshots, scanned documents, invoices, receipts,
+            books, newspapers, business cards, forms, letters, identity documents,
+            certificates, presentations, whiteboards, and many other image types. Clear,
+            high-resolution images generally produce more accurate text recognition.
+          </p>
+
+        </section>
+
+        {/* ================= Benefits ================= */}
+
+        <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
+
+          <h2 className="mb-5 text-3xl font-bold dark:text-white">
+            Why Use OCR?
+          </h2>
+
+          <p className="mb-5 leading-8 text-gray-700 dark:text-gray-300">
+            OCR technology saves time by converting printed or scanned text into editable
+            digital text. Instead of manually typing documents, you can instantly extract
+            content for editing, searching, translating, or archiving.
+          </p>
+
+          <p className="leading-8 text-gray-700 dark:text-gray-300">
+            Students, teachers, researchers, businesses, government offices, and
+            professionals use OCR every day to digitize paperwork and improve productivity.
+          </p>
+
+        </section>
+
+        {/* ================= Privacy ================= */}
+
+        <section className="mt-12 rounded-2xl bg-blue-50 p-8 dark:bg-zinc-800">
+
+          <h2 className="mb-4 text-3xl font-bold dark:text-white">
+            Privacy & Security
+          </h2>
+
+          <p className="leading-8 text-gray-700 dark:text-gray-300">
+            Your images are processed securely. We do not permanently store uploaded
+            files, helping protect your personal and confidential information during OCR
+            processing.
+          </p>
+
+        </section>
+
+        {/* ================= FAQ ================= */}
+
+        <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
+
+          <h2 className="mb-6 text-3xl font-bold dark:text-white">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-6">
+
+            <div>
+              <h3 className="text-lg font-semibold dark:text-white">
+                Is this OCR tool free?
+              </h3>
+
+              <p className="mt-2 text-gray-600 dark:text-gray-400">
+                Yes. You can extract text from images without paying anything.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold dark:text-white">
+                Can I edit the extracted text?
+              </h3>
+
+              <p className="mt-2 text-gray-600 dark:text-gray-400">
+                Yes. The recognized text appears in the editor where you can modify it before downloading.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold dark:text-white">
+                Which image formats are supported?
+              </h3>
+
+              <p className="mt-2 text-gray-600 dark:text-gray-400">
+                Most common image formats including JPG, JPEG, PNG, BMP, GIF, and WebP are supported.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold dark:text-white">
+                Can I download the extracted text?
+              </h3>
+
+              <p className="mt-2 text-gray-600 dark:text-gray-400">
+                Yes. You can copy the text or download it as a TXT or DOCX file.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold dark:text-white">
+                Are my images secure?
+              </h3>
+
+              <p className="mt-2 text-gray-600 dark:text-gray-400">
+                Yes. Uploaded files are processed securely and are not permanently stored.
+              </p>
+            </div>
+
+          </div>
+
+        </section>
       </div>
+
     </div>
   );
 }

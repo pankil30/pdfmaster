@@ -50,7 +50,13 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex items-center gap-4">
-            <a
+
+            <div className="grid grid-cols-2 gap-4">
+
+
+
+</div>
+            {/* <a
               href="https://facebook.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
@@ -84,7 +90,7 @@ export default function Footer() {
               className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-pink-600 hover:text-white transition"
             >
               <FaInstagram />
-            </a>
+            </a> */}
           </div>
         </div>
 

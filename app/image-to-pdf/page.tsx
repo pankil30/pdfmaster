@@ -140,6 +140,175 @@ export default function ImageToPdfPage() {
                         "Convert to PDF"
                     )}
                 </button>
+
+                {/* -------------------- About -------------------- */}
+
+<section className="mt-12 rounded-xl border bg-white p-6 shadow-sm">
+  <h2 className="mb-4 text-3xl font-bold">
+    Free Image to PDF Converter Online
+  </h2>
+
+  <p className="mb-4 text-gray-700 leading-8">
+    Convert JPG, PNG, WEBP, BMP, and GIF images into a single PDF document
+    online for free. Our Image to PDF Converter is fast, secure, and works
+    directly in your browser without installing any software.
+  </p>
+
+  <p className="mb-4 text-gray-700 leading-8">
+    Whether you're creating assignments, invoices, reports, scanned
+    documents, or photo albums, our tool lets you merge multiple images into
+    one professional PDF in just a few clicks.
+  </p>
+
+  <p className="text-gray-700 leading-8">
+    All uploaded files are processed securely. We do not permanently store
+    your files, making this tool ideal for personal, educational, and
+    business use.
+  </p>
+</section>
+
+{/* -------------------- How It Works -------------------- */}
+
+<section className="mt-12 rounded-xl border bg-white p-6 shadow-sm">
+  <h2 className="mb-6 text-3xl font-bold">
+    How to Convert Images to PDF
+  </h2>
+
+  <div className="grid gap-5 md:grid-cols-2">
+
+    <div className="rounded-lg border p-5">
+      <h3 className="font-semibold text-lg mb-2">
+        Step 1
+      </h3>
+
+      <p className="text-gray-600">
+        Upload one or multiple JPG, PNG, WEBP, GIF, or BMP images.
+      </p>
+    </div>
+
+    <div className="rounded-lg border p-5">
+      <h3 className="font-semibold text-lg mb-2">
+        Step 2
+      </h3>
+
+      <p className="text-gray-600">
+        Arrange your images in the order you want inside the PDF.
+      </p>
+    </div>
+
+    <div className="rounded-lg border p-5">
+      <h3 className="font-semibold text-lg mb-2">
+        Step 3
+      </h3>
+
+      <p className="text-gray-600">
+        Click the Convert button to generate your PDF.
+      </p>
+    </div>
+
+    <div className="rounded-lg border p-5">
+      <h3 className="font-semibold text-lg mb-2">
+        Step 4
+      </h3>
+
+      <p className="text-gray-600">
+        Download your newly created PDF instantly.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+{/* -------------------- Features -------------------- */}
+
+<section className="mt-12 rounded-xl border bg-white p-6 shadow-sm">
+
+<h2 className="mb-6 text-3xl font-bold">
+Features
+</h2>
+
+<div className="grid gap-4 md:grid-cols-2">
+
+<div className="rounded-lg border p-4">
+✅ Supports JPG
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Supports PNG
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Supports WEBP
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Supports BMP
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Supports GIF
+</div>
+
+<div className="rounded-lg border p-4">
+✅ High Quality PDF
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Fast Conversion
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Mobile Friendly
+</div>
+
+<div className="rounded-lg border p-4">
+✅ No Watermark
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Unlimited Usage
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Secure Processing
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Completely Free
+</div>
+
+</div>
+
+</section>
+
+{/* -------------------- Benefits -------------------- */}
+
+<section className="mt-12 rounded-xl border bg-white p-6 shadow-sm">
+
+<h2 className="mb-4 text-3xl font-bold">
+Why Use Our Image to PDF Tool?
+</h2>
+
+<p className="leading-8 text-gray-700 mb-4">
+Creating PDF files from images has never been easier. Whether you need to
+combine scanned documents, create printable reports, organize receipts, or
+share multiple photos as a single document, this tool helps you complete the
+task in seconds.
+</p>
+
+<p className="leading-8 text-gray-700 mb-4">
+Unlike many online converters, our tool preserves image quality while
+producing compact PDF files that are easy to share by email or messaging
+apps.
+</p>
+
+<p className="leading-8 text-gray-700">
+Our converter works directly from your browser, meaning there's no software
+installation required. It supports desktops, tablets, and smartphones for a
+smooth experience across devices.
+</p>
+
+</section>
             </div>
         </ToolLayout>
     );

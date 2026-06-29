@@ -154,6 +154,232 @@ export default function RotatePdfPage() {
                             : "Rotate PDF"}
                 </button>
             </div>
+            {/* ================= About Rotate PDF ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+  <h2 className="mb-5 text-3xl font-bold">
+    Rotate PDF Pages Online
+  </h2>
+
+  <p className="mb-5 leading-8 text-gray-700">
+    Rotate PDF pages online quickly and securely without installing any
+    software. Whether your scanned document appears sideways or upside down,
+    our Rotate PDF tool lets you rotate every page by 90°, 180°, or 270° in
+    just a few clicks.
+  </p>
+
+  <p className="mb-5 leading-8 text-gray-700">
+    Upload your PDF, choose the desired rotation angle, and download the
+    corrected document instantly. The original text, images, formatting, and
+    layout remain unchanged after rotation.
+  </p>
+
+  <p className="leading-8 text-gray-700">
+    The tool works directly in your browser on Windows, macOS, Linux,
+    Android, and iPhone. No registration or software installation is
+    required.
+  </p>
+</section>
+
+{/* ================= How It Works ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+  <h2 className="mb-6 text-3xl font-bold">
+    How to Rotate a PDF
+  </h2>
+
+  <div className="grid gap-5 md:grid-cols-2">
+
+    <div className="rounded-lg border p-5">
+      <h3 className="mb-2 text-lg font-semibold">
+        Step 1
+      </h3>
+
+      <p className="text-gray-600">
+        Upload your PDF document.
+      </p>
+    </div>
+
+    <div className="rounded-lg border p-5">
+      <h3 className="mb-2 text-lg font-semibold">
+        Step 2
+      </h3>
+
+      <p className="text-gray-600">
+        Select a rotation angle of 90°, 180°, or 270°.
+      </p>
+    </div>
+
+    <div className="rounded-lg border p-5">
+      <h3 className="mb-2 text-lg font-semibold">
+        Step 3
+      </h3>
+
+      <p className="text-gray-600">
+        Click the Rotate PDF button.
+      </p>
+    </div>
+
+    <div className="rounded-lg border p-5">
+      <h3 className="mb-2 text-lg font-semibold">
+        Step 4
+      </h3>
+
+      <p className="text-gray-600">
+        Download your rotated PDF instantly.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+{/* ================= Features ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-6 text-3xl font-bold">
+Features
+</h2>
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+
+<div className="rounded-lg border p-4">
+✅ Rotate by 90°
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Rotate by 180°
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Rotate by 270°
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Preserve PDF Quality
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Fast Processing
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Browser Based
+</div>
+
+<div className="rounded-lg border p-4">
+✅ No Watermark
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Secure File Processing
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Free Forever
+</div>
+
+</div>
+
+</section>
+
+{/* ================= Benefits ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-5 text-3xl font-bold">
+Why Use Our Rotate PDF Tool?
+</h2>
+
+<p className="mb-5 leading-8 text-gray-700">
+Scanned documents often appear sideways or upside down because of incorrect
+scanner settings or camera orientation. Our Rotate PDF tool fixes those
+documents in seconds while preserving their original quality.
+</p>
+
+<p className="mb-5 leading-8 text-gray-700">
+Students, teachers, businesses, offices, and professionals can easily rotate
+PDF reports, contracts, invoices, books, presentations, manuals, and other
+documents before sharing or printing them.
+</p>
+
+<p className="leading-8 text-gray-700">
+Since everything runs in your browser, there's no need to install desktop
+software. Upload your PDF, choose the rotation angle, and download the
+corrected document within seconds.
+</p>
+
+</section>
+
+{/* ================= Security ================= */}
+
+<section className="mt-12 rounded-xl bg-blue-50 p-8">
+
+<h2 className="mb-4 text-3xl font-bold">
+Privacy & Security
+</h2>
+
+<p className="leading-8 text-gray-700">
+Your files are processed securely. Uploaded PDF documents are automatically
+removed after processing, helping protect your privacy and confidential
+information.
+</p>
+
+</section>
+
+{/* ================= FAQ ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-6 text-3xl font-bold">
+Frequently Asked Questions
+</h2>
+
+<div className="space-y-6">
+
+<div>
+<h3 className="font-semibold text-lg">
+Is this Rotate PDF tool free?
+</h3>
+
+<p className="mt-2 text-gray-600">
+Yes. You can rotate PDF documents online without paying any fees.
+</p>
+</div>
+
+<div>
+<h3 className="font-semibold text-lg">
+Will the PDF quality change?
+</h3>
+
+<p className="mt-2 text-gray-600">
+No. The document quality, fonts, and layout remain unchanged after rotation.
+</p>
+</div>
+
+<div>
+<h3 className="font-semibold text-lg">
+Can I rotate scanned PDFs?
+</h3>
+
+<p className="mt-2 text-gray-600">
+Yes. This tool works perfectly with scanned documents.
+</p>
+</div>
+
+<div>
+<h3 className="font-semibold text-lg">
+Is my PDF secure?
+</h3>
+
+<p className="mt-2 text-gray-600">
+Yes. Files are processed securely and removed after conversion.
+</p>
+</div>
+
+</div>
+
+</section>
         </ToolLayout>
     );
 }

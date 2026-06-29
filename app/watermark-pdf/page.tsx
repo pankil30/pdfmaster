@@ -130,6 +130,256 @@ export default function WatermarkPdfPage() {
               : "Add Watermark"}
         </button>
       </div>
+      {/* ================= About Watermark PDF ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+  <h2 className="mb-5 text-3xl font-bold">
+    Add Watermark to PDF Online
+  </h2>
+
+  <p className="mb-5 leading-8 text-gray-700">
+    Add a professional text watermark to every page of your PDF document with
+    our free online Watermark PDF tool. Whether you want to protect your
+    document, identify ownership, or mark files as confidential, this tool
+    lets you apply a custom watermark in just a few clicks.
+  </p>
+
+  <p className="mb-5 leading-8 text-gray-700">
+    Upload your PDF, enter the watermark text, and click <strong>Add
+    Watermark</strong>. The watermark is applied to every page while keeping
+    the original layout, fonts, images, and formatting intact.
+  </p>
+
+  <p className="leading-8 text-gray-700">
+    Our online PDF watermark tool works directly in your browser on Windows,
+    macOS, Linux, Android, and iPhone without requiring any software
+    installation or registration.
+  </p>
+</section>
+
+{/* ================= How It Works ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-6 text-3xl font-bold">
+How to Add a Watermark to PDF
+</h2>
+
+<div className="grid gap-5 md:grid-cols-2">
+
+<div className="rounded-lg border p-5">
+<h3 className="mb-2 text-lg font-semibold">
+Step 1
+</h3>
+
+<p className="text-gray-600">
+Upload your PDF document.
+</p>
+</div>
+
+<div className="rounded-lg border p-5">
+<h3 className="mb-2 text-lg font-semibold">
+Step 2
+</h3>
+
+<p className="text-gray-600">
+Enter the text you want to use as the watermark.
+</p>
+</div>
+
+<div className="rounded-lg border p-5">
+<h3 className="mb-2 text-lg font-semibold">
+Step 3
+</h3>
+
+<p className="text-gray-600">
+Click the Add Watermark button.
+</p>
+</div>
+
+<div className="rounded-lg border p-5">
+<h3 className="mb-2 text-lg font-semibold">
+Step 4
+</h3>
+
+<p className="text-gray-600">
+Download your newly watermarked PDF instantly.
+</p>
+</div>
+
+</div>
+
+</section>
+
+{/* ================= Features ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-6 text-3xl font-bold">
+Features
+</h2>
+
+<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+
+<div className="rounded-lg border p-4">
+✅ Add Text Watermarks
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Watermark Every Page
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Preserve PDF Quality
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Fast Processing
+</div>
+
+<div className="rounded-lg border p-4">
+✅ No Watermark Added by Us
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Browser Based
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Mobile Friendly
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Secure Processing
+</div>
+
+<div className="rounded-lg border p-4">
+✅ Free to Use
+</div>
+
+</div>
+
+</section>
+
+{/* ================= Benefits ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-5 text-3xl font-bold">
+Why Use Our Watermark PDF Tool?
+</h2>
+
+<p className="mb-5 leading-8 text-gray-700">
+Adding a watermark is one of the easiest ways to protect important documents.
+You can label files with text such as "Confidential", "Draft", "Sample",
+"Internal Use Only", or your company name to clearly indicate ownership or
+document status.
+</p>
+
+<p className="mb-5 leading-8 text-gray-700">
+Businesses, students, teachers, legal professionals, designers, and
+organizations use watermarks to prevent unauthorized distribution and to make
+documents easier to identify.
+</p>
+
+<p className="leading-8 text-gray-700">
+Our tool applies your watermark while preserving the original document's
+quality, including fonts, images, tables, charts, and page formatting.
+</p>
+
+</section>
+
+{/* ================= Common Uses ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-5 text-3xl font-bold">
+Common Watermark Examples
+</h2>
+
+<ul className="list-disc space-y-2 pl-6 text-gray-700 leading-8">
+<li>Confidential</li>
+<li>Draft</li>
+<li>Sample Copy</li>
+<li>Approved</li>
+<li>For Review</li>
+<li>Internal Use Only</li>
+<li>Company Name</li>
+<li>Copyright Notice</li>
+<li>Personal Copy</li>
+</ul>
+
+</section>
+
+{/* ================= Security ================= */}
+
+<section className="mt-12 rounded-xl bg-blue-50 p-8">
+
+<h2 className="mb-4 text-3xl font-bold">
+Privacy & Security
+</h2>
+
+<p className="leading-8 text-gray-700">
+Your privacy is important. Uploaded PDF documents are processed securely and
+removed after processing. Your files are not permanently stored, helping keep
+your personal and business documents safe.
+</p>
+
+</section>
+
+{/* ================= FAQ ================= */}
+
+<section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
+
+<h2 className="mb-6 text-3xl font-bold">
+Frequently Asked Questions
+</h2>
+
+<div className="space-y-6">
+
+<div>
+<h3 className="font-semibold text-lg">
+Is this tool free?
+</h3>
+
+<p className="mt-2 text-gray-600">
+Yes. You can add text watermarks to PDF documents completely free.
+</p>
+</div>
+
+<div>
+<h3 className="font-semibold text-lg">
+Will the PDF quality change?
+</h3>
+
+<p className="mt-2 text-gray-600">
+No. The original formatting, fonts, images, and layout are preserved.
+</p>
+</div>
+
+<div>
+<h3 className="font-semibold text-lg">
+Can I watermark every page?
+</h3>
+
+<p className="mt-2 text-gray-600">
+Yes. The watermark is automatically applied to all pages of your PDF.
+</p>
+</div>
+
+<div>
+<h3 className="font-semibold text-lg">
+Are my files secure?
+</h3>
+
+<p className="mt-2 text-gray-600">
+Yes. Your files are processed securely and automatically removed after processing.
+</p>
+</div>
+
+</div>
+
+</section>
     </ToolLayout>
   );
 }

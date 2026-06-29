@@ -1,15 +1,20 @@
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ToolCard from "@/components/ToolCard";
-
 import FaqSection from "@/components/FaqSection";
-import Footer from "@/components/Footer";
 import CTASection from "@/components/CTASection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
 import Link from "next/link";
+import Guides from "@/components/Guides";
+import WorksSection from "@/components/WorksSection";
 
 const tools = [
+  {
+    title: "Add Signature",
+    href: "/add-signature",
+    description: "Sign your PDF documents online.",
+    category: "Edit",
+  },
   {
     title: "Merge PDF",
     href: "/merge-pdf",
@@ -77,12 +82,12 @@ const tools = [
     category: "Security",
   },
   {
-  title: "OCR Editor",
-  description:
-    "Extract and edit text from images and PDFs",
-  href: "/ocr-editor",
-  category: "Edit",
-},
+    title: "OCR Editor",
+    description:
+      "Extract and edit text from images and PDFs",
+    href: "/ocr-editor",
+    category: "Edit",
+  },
 ];
 
 export default function Home() {
@@ -157,12 +162,14 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      <WorksSection />
+      <Guides />
 
       {/* <TrustSection /> */}
       <WhyChooseUs />
       <FaqSection />
       <CTASection />
-
+     
     </>
   );
 }

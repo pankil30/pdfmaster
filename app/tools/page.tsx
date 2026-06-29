@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
+import Guides from "@/components/Guides";
 
 const tools = [
   {
@@ -147,6 +148,7 @@ export default function ToolsPage() {
           </div>
         )}
       </section>
+            <Guides />
     </div>
   );
 }
