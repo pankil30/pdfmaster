@@ -1,18 +1,33 @@
+// "use client";
+
+// import { useEffect, useState } from "react";
+// import * as pdfjsLib from "pdfjs-dist";
+
+// import {
+//   FileImage,
+//   Loader2,
+//   Upload,
+// } from "lucide-react";
+
+// const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
+
+// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//   "pdfjs-dist/build/pdf.worker.min.mjs",
+//   import.meta.url
+// ).toString();
+// export default function PdfToImagePage() {
+
+
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import { useEffect, useState } from "react";
-import * as pdfjsLib from "pdfjs-dist";
-import {
-  FileImage,
-  Loader2,
-  Upload,
-} from "lucide-react";
-
-
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  "/pdf.worker.min.mjs";
+import { FileImage, Loader2, Upload } from "lucide-react";
 
 export default function PdfToImagePage() {
+
+
   const [loading, setLoading] =
     useState(false);
 
@@ -22,100 +37,99 @@ export default function PdfToImagePage() {
   const [countdown, setCountdown] =
     useState<number | null>(null);
 
-const handleFile = async (
-  e: React.ChangeEvent<HTMLInputElement>
-) => {
-  try {
-    setError("");
-    setLoading(true);
+  const handleFile = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    try {
+      setError("");
+      setLoading(true);
 
-    const file = e.target.files?.[0];
+      const file = e.target.files?.[0];
 
-    if (!file) {
+      if (!file) {
+        setLoading(false);
+        return;
+      }
+
+      const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
+      pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+        "pdfjs-dist/build/pdf.worker.min.mjs",
+        import.meta.url
+      ).toString();
+
+      const buffer = await file.arrayBuffer();
+
+      const pdf = await pdfjs.getDocument({
+        data: buffer,
+      }).promise;
+
+      const output: string[] = [];
+
+      for (
+        let pageNum = 1;
+        pageNum <= pdf.numPages;
+        pageNum++
+      ) {
+        const page = await pdf.getPage(pageNum);
+
+        const viewport = page.getViewport({
+          scale: 2,
+        });
+
+        const canvas =
+          document.createElement("canvas");
+
+        const context =
+          canvas.getContext("2d");
+
+        if (!context) continue;
+
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        // await page.render({
+        //   canvasContext: context,
+        //   viewport,
+        // }).promise;
+
+        await page.render({
+          canvas,
+          canvasContext: context,
+          viewport,
+        }).promise;
+
+        output.push(
+          canvas.toDataURL("image/png")
+        );
+      }
+
+      sessionStorage.setItem(
+        "downloadImages",
+        JSON.stringify(output)
+      );
+
+      sessionStorage.setItem(
+        "downloadName",
+        `${file.name.replace(
+          ".pdf",
+          ""
+        )}-images`
+      );
+
       setLoading(false);
-      return;
-    }
+      setCountdown(5);
+    } catch (err) {
+      console.error(err);
 
-    const pdfjs = await import("pdfjs-dist");
+      setLoading(false);
 
-    pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-      "pdfjs-dist/build/pdf.worker.min.mjs",
-      import.meta.url
-    ).toString();
-
-    const buffer = await file.arrayBuffer();
-
-    const pdf = await pdfjs.getDocument({
-      data: buffer,
-    }).promise;
-
-    const output: string[] = [];
-
-    for (
-      let pageNum = 1;
-      pageNum <= pdf.numPages;
-      pageNum++
-    ) {
-      const page = await pdf.getPage(pageNum);
-
-      const viewport = page.getViewport({
-        scale: 2,
-      });
-
-      const canvas =
-        document.createElement("canvas");
-
-      const context =
-        canvas.getContext("2d");
-
-      if (!context) continue;
-
-      canvas.width = viewport.width;
-      canvas.height = viewport.height;
-
-      // await page.render({
-      //   canvasContext: context,
-      //   viewport,
-      // }).promise;
-
-      await page.render({
-  canvas,
-  canvasContext: context,
-  viewport,
-}).promise;
-
-      output.push(
-        canvas.toDataURL("image/png")
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Failed to convert PDF."
       );
     }
-
-    sessionStorage.setItem(
-      "downloadImages",
-      JSON.stringify(output)
-    );
-
-    sessionStorage.setItem(
-      "downloadName",
-      `${file.name.replace(
-        ".pdf",
-        ""
-      )}-images`
-    );
-
-    setLoading(false);
-    setCountdown(5);
-  } catch (err) {
-    console.error(err);
-
-    setLoading(false);
-
-    setError(
-      err instanceof Error
-        ? err.message
-        : "Failed to convert PDF."
-    );
-  }
-};
+  };
 
   useEffect(() => {
     if (countdown === null) return;
@@ -211,176 +225,176 @@ const handleFile = async (
       </div>
       {/* ================= About PDF to Image ================= */}
 
-<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
-  <h2 className="mb-5 text-3xl font-bold">
-    Convert PDF to Images Online
-  </h2>
+      <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+        <h2 className="mb-5 text-3xl font-bold">
+          Convert PDF to Images Online
+        </h2>
 
-  <p className="mb-5 leading-8 text-gray-700">
-    Our PDF to Image Converter allows you to convert every page of a PDF
-    document into high-quality PNG images in just a few seconds. The tool is
-    completely free and works directly in your browser without installing any
-    software.
-  </p>
+        <p className="mb-5 leading-8 text-gray-700">
+          Our PDF to Image Converter allows you to convert every page of a PDF
+          document into high-quality PNG images in just a few seconds. The tool is
+          completely free and works directly in your browser without installing any
+          software.
+        </p>
 
-  <p className="mb-5 leading-8 text-gray-700">
-    Whether you need images for presentations, websites, social media,
-    printing, or document sharing, our converter preserves the original
-    quality, fonts, graphics, and layout of every PDF page.
-  </p>
+        <p className="mb-5 leading-8 text-gray-700">
+          Whether you need images for presentations, websites, social media,
+          printing, or document sharing, our converter preserves the original
+          quality, fonts, graphics, and layout of every PDF page.
+        </p>
 
-  <p className="leading-8 text-gray-700">
-    Simply upload your PDF, wait a few seconds while the pages are processed,
-    and download each page as a separate PNG image.
-  </p>
-</section>
+        <p className="leading-8 text-gray-700">
+          Simply upload your PDF, wait a few seconds while the pages are processed,
+          and download each page as a separate PNG image.
+        </p>
+      </section>
 
-{/* ================= How It Works ================= */}
+      {/* ================= How It Works ================= */}
 
-<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
-  <h2 className="mb-6 text-3xl font-bold">
-    How to Convert PDF to Images
-  </h2>
+      <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+        <h2 className="mb-6 text-3xl font-bold">
+          How to Convert PDF to Images
+        </h2>
 
-  <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2">
 
-    <div className="rounded-xl border p-5">
-      <h3 className="mb-2 font-semibold text-lg">
-        Step 1
-      </h3>
+          <div className="rounded-xl border p-5">
+            <h3 className="mb-2 font-semibold text-lg">
+              Step 1
+            </h3>
 
-      <p className="text-gray-600">
-        Select the PDF file from your device.
-      </p>
-    </div>
+            <p className="text-gray-600">
+              Select the PDF file from your device.
+            </p>
+          </div>
 
-    <div className="rounded-xl border p-5">
-      <h3 className="mb-2 font-semibold text-lg">
-        Step 2
-      </h3>
+          <div className="rounded-xl border p-5">
+            <h3 className="mb-2 font-semibold text-lg">
+              Step 2
+            </h3>
 
-      <p className="text-gray-600">
-        Upload the document to start processing.
-      </p>
-    </div>
+            <p className="text-gray-600">
+              Upload the document to start processing.
+            </p>
+          </div>
 
-    <div className="rounded-xl border p-5">
-      <h3 className="mb-2 font-semibold text-lg">
-        Step 3
-      </h3>
+          <div className="rounded-xl border p-5">
+            <h3 className="mb-2 font-semibold text-lg">
+              Step 3
+            </h3>
 
-      <p className="text-gray-600">
-        Every PDF page will be converted into a PNG image.
-      </p>
-    </div>
+            <p className="text-gray-600">
+              Every PDF page will be converted into a PNG image.
+            </p>
+          </div>
 
-    <div className="rounded-xl border p-5">
-      <h3 className="mb-2 font-semibold text-lg">
-        Step 4
-      </h3>
+          <div className="rounded-xl border p-5">
+            <h3 className="mb-2 font-semibold text-lg">
+              Step 4
+            </h3>
 
-      <p className="text-gray-600">
-        Download all converted images instantly.
-      </p>
-    </div>
+            <p className="text-gray-600">
+              Download all converted images instantly.
+            </p>
+          </div>
 
-  </div>
-</section>
+        </div>
+      </section>
 
-{/* ================= Features ================= */}
+      {/* ================= Features ================= */}
 
-<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+      <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
-<h2 className="mb-6 text-3xl font-bold">
-Features
-</h2>
+        <h2 className="mb-6 text-3xl font-bold">
+          Features
+        </h2>
 
-<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 
-<div className="rounded-lg border p-4">
-✅ High Resolution PNG Images
-</div>
+          <div className="rounded-lg border p-4">
+            ✅ High Resolution PNG Images
+          </div>
 
-<div className="rounded-lg border p-4">
-✅ Fast Conversion
-</div>
+          <div className="rounded-lg border p-4">
+            ✅ Fast Conversion
+          </div>
 
-<div className="rounded-lg border p-4">
-✅ Original Layout Preserved
-</div>
+          <div className="rounded-lg border p-4">
+            ✅ Original Layout Preserved
+          </div>
 
-<div className="rounded-lg border p-4">
-✅ Secure Processing
-</div>
+          <div className="rounded-lg border p-4">
+            ✅ Secure Processing
+          </div>
 
-<div className="rounded-lg border p-4">
-✅ No Watermark
-</div>
+          <div className="rounded-lg border p-4">
+            ✅ No Watermark
+          </div>
 
-<div className="rounded-lg border p-4">
-✅ Browser Based
-</div>
+          <div className="rounded-lg border p-4">
+            ✅ Browser Based
+          </div>
 
-<div className="rounded-lg border p-4">
-✅ Mobile Friendly
-</div>
+          <div className="rounded-lg border p-4">
+            ✅ Mobile Friendly
+          </div>
 
-<div className="rounded-lg border p-4">
-✅ Unlimited Usage
-</div>
+          <div className="rounded-lg border p-4">
+            ✅ Unlimited Usage
+          </div>
 
-<div className="rounded-lg border p-4">
-✅ Free Forever
-</div>
+          <div className="rounded-lg border p-4">
+            ✅ Free Forever
+          </div>
 
-</div>
+        </div>
 
-</section>
+      </section>
 
-{/* ================= Benefits ================= */}
+      {/* ================= Benefits ================= */}
 
-<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+      <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
-<h2 className="mb-5 text-3xl font-bold">
-Why Use PDF to Image?
-</h2>
+        <h2 className="mb-5 text-3xl font-bold">
+          Why Use PDF to Image?
+        </h2>
 
-<p className="mb-5 leading-8 text-gray-700">
-Converting PDF pages into images is useful when you want to share content on
-social media, include pages in presentations, upload graphics to websites,
-or print individual pages. Images are also easier to preview and edit with
-most graphic software.
-</p>
+        <p className="mb-5 leading-8 text-gray-700">
+          Converting PDF pages into images is useful when you want to share content on
+          social media, include pages in presentations, upload graphics to websites,
+          or print individual pages. Images are also easier to preview and edit with
+          most graphic software.
+        </p>
 
-<p className="mb-5 leading-8 text-gray-700">
-Our converter keeps each page clear and sharp while preserving text,
-illustrations, charts, and photographs. The generated PNG files are suitable
-for both digital viewing and printing.
-</p>
+        <p className="mb-5 leading-8 text-gray-700">
+          Our converter keeps each page clear and sharp while preserving text,
+          illustrations, charts, and photographs. The generated PNG files are suitable
+          for both digital viewing and printing.
+        </p>
 
-<p className="leading-8 text-gray-700">
-Since everything runs inside your browser, there is no need to install any
-desktop applications. Upload your PDF, convert it, and download the images
-within seconds.
-</p>
+        <p className="leading-8 text-gray-700">
+          Since everything runs inside your browser, there is no need to install any
+          desktop applications. Upload your PDF, convert it, and download the images
+          within seconds.
+        </p>
 
-</section>
+      </section>
 
-{/* ================= Privacy ================= */}
+      {/* ================= Privacy ================= */}
 
-<section className="mt-12 rounded-2xl bg-blue-50 p-8">
+      <section className="mt-12 rounded-2xl bg-blue-50 p-8">
 
-<h2 className="mb-4 text-3xl font-bold">
-Safe & Secure
-</h2>
+        <h2 className="mb-4 text-3xl font-bold">
+          Safe & Secure
+        </h2>
 
-<p className="leading-8 text-gray-700">
-Your privacy is important. Uploaded PDF files are processed securely and are
-not permanently stored. After conversion, files are automatically removed to
-help keep your information private.
-</p>
+        <p className="leading-8 text-gray-700">
+          Your privacy is important. Uploaded PDF files are processed securely and are
+          not permanently stored. After conversion, files are automatically removed to
+          help keep your information private.
+        </p>
 
-</section>
+      </section>
     </div>
   );
 }
