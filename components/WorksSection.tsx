@@ -9,16 +9,16 @@ const cards = [
         button: "Get Started",
         href: "/pdf-editor",
         color: "text-green-500",
-        image: "/images/cloud.png",
+        image: "/x.jpg",
     },
     {
         title: "Desktop PDF Tools",
         description:
             "Use PDF tools on Windows, macOS or Linux. Process your documents locally for maximum privacy and speed.",
         button: "Download Now",
-        href: "/download",
+        href: "/Desktop",
         color: "text-blue-500",
-        image: "/images/desktop.png",
+        image: "/y.jpg",
     },
 ];
 
