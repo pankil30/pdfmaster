@@ -52,52 +52,57 @@ export default function AddSignaturePage() {
         setPdfFile(e.target.files[0]);
     };
 
-async function signPDF() {
-  if (!pdfFile) {
-    alert("Upload PDF first");
-    return;
-  }
+    async function signPDF() {
+        if (!pdfFile) {
+            alert("Upload PDF first");
+            return;
+        }
 
-  if (!signature) {
-    alert("Draw Signature First");
-    return;
-  }
+        if (!signature) {
+            alert("Draw Signature First");
+            return;
+        }
 
-  const existingPdfBytes = await pdfFile.arrayBuffer();
+        const existingPdfBytes = await pdfFile.arrayBuffer();
 
-  const pdfDoc = await PDFDocument.load(existingPdfBytes);
+        const pdfDoc = await PDFDocument.load(existingPdfBytes);
 
-  const pages = pdfDoc.getPages();
-  const firstPage = pages[0];
+        const pages = pdfDoc.getPages();
+        const firstPage = pages[0];
 
-  const pngImage = await pdfDoc.embedPng(signature);
+        const pngImage = await pdfDoc.embedPng(signature);
 
-  const pngDims = pngImage.scale(0.5);
+        const pngDims = pngImage.scale(0.5);
 
-  firstPage.drawImage(pngImage, {
-    x: 100,
-    y: 100,
-    width: pngDims.width,
-    height: pngDims.height,
-  });
+        firstPage.drawImage(pngImage, {
+            x: 100,
+            y: 100,
+            width: pngDims.width,
+            height: pngDims.height,
+        });
 
-  const pdfBytes = await pdfDoc.save();
+        const pdfBytes = await pdfDoc.save();
 
-  const blob = new Blob([pdfBytes], {
-    type: "application/pdf",
-  });
+        const arrayBuffer = new ArrayBuffer(pdfBytes.length);
+        const view = new Uint8Array(arrayBuffer);
 
-  const url = URL.createObjectURL(blob);
+        view.set(pdfBytes);
 
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "signed.pdf";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+        const blob = new Blob([arrayBuffer], {
+            type: "application/pdf",
+        });
 
-  URL.revokeObjectURL(url);
-}
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "signed.pdf";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        URL.revokeObjectURL(url);
+    }
 
     return (
         <div className="mx-auto max-w-5xl p-10">
@@ -171,261 +176,261 @@ async function signPDF() {
             </div>
             {/* ================= About Add Signature to PDF ================= */}
 
-<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
-  <h2 className="mb-5 text-3xl font-bold">
-    Add Signature to PDF Online
-  </h2>
-
-  <p className="mb-5 leading-8 text-gray-700">
-    Sign PDF documents online using your own handwritten digital signature.
-    Draw your signature directly in the browser, place it anywhere on the PDF,
-    and download the signed document in just a few clicks. No printing,
-    scanning, or additional software is required.
-  </p>
-
-  <p className="mb-5 leading-8 text-gray-700">
-    Whether you need to sign contracts, agreements, invoices, application
-    forms, consent letters, or business documents, this free PDF signature
-    tool provides a fast and convenient solution while preserving your
-    document's quality.
-  </p>
-
-  <p className="leading-8 text-gray-700">
-    Everything works directly in your browser and is compatible with Windows,
-    macOS, Linux, Android, and iPhone.
-  </p>
-</section>
-
-{/* ================= How It Works ================= */}
-
-<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+            <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+                <h2 className="mb-5 text-3xl font-bold">
+                    Add Signature to PDF Online
+                </h2>
+
+                <p className="mb-5 leading-8 text-gray-700">
+                    Sign PDF documents online using your own handwritten digital signature.
+                    Draw your signature directly in the browser, place it anywhere on the PDF,
+                    and download the signed document in just a few clicks. No printing,
+                    scanning, or additional software is required.
+                </p>
+
+                <p className="mb-5 leading-8 text-gray-700">
+                    Whether you need to sign contracts, agreements, invoices, application
+                    forms, consent letters, or business documents, this free PDF signature
+                    tool provides a fast and convenient solution while preserving your
+                    document's quality.
+                </p>
+
+                <p className="leading-8 text-gray-700">
+                    Everything works directly in your browser and is compatible with Windows,
+                    macOS, Linux, Android, and iPhone.
+                </p>
+            </section>
+
+            {/* ================= How It Works ================= */}
+
+            <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
-<h2 className="mb-6 text-3xl font-bold">
-How to Sign a PDF
-</h2>
+                <h2 className="mb-6 text-3xl font-bold">
+                    How to Sign a PDF
+                </h2>
 
-<div className="grid gap-5 md:grid-cols-2">
+                <div className="grid gap-5 md:grid-cols-2">
 
-<div className="rounded-xl border p-5">
-<h3 className="mb-2 text-lg font-semibold">
-Step 1
-</h3>
+                    <div className="rounded-xl border p-5">
+                        <h3 className="mb-2 text-lg font-semibold">
+                            Step 1
+                        </h3>
 
-<p className="text-gray-600">
-Upload your PDF document.
-</p>
-</div>
+                        <p className="text-gray-600">
+                            Upload your PDF document.
+                        </p>
+                    </div>
 
-<div className="rounded-xl border p-5">
-<h3 className="mb-2 text-lg font-semibold">
-Step 2
-</h3>
+                    <div className="rounded-xl border p-5">
+                        <h3 className="mb-2 text-lg font-semibold">
+                            Step 2
+                        </h3>
 
-<p className="text-gray-600">
-Draw your handwritten signature using your mouse, touchpad, or touchscreen.
-</p>
-</div>
+                        <p className="text-gray-600">
+                            Draw your handwritten signature using your mouse, touchpad, or touchscreen.
+                        </p>
+                    </div>
 
-<div className="rounded-xl border p-5">
-<h3 className="mb-2 text-lg font-semibold">
-Step 3
-</h3>
+                    <div className="rounded-xl border p-5">
+                        <h3 className="mb-2 text-lg font-semibold">
+                            Step 3
+                        </h3>
 
-<p className="text-gray-600">
-Move and position the signature where you want it to appear.
-</p>
-</div>
+                        <p className="text-gray-600">
+                            Move and position the signature where you want it to appear.
+                        </p>
+                    </div>
 
-<div className="rounded-xl border p-5">
-<h3 className="mb-2 text-lg font-semibold">
-Step 4
-</h3>
+                    <div className="rounded-xl border p-5">
+                        <h3 className="mb-2 text-lg font-semibold">
+                            Step 4
+                        </h3>
 
-<p className="text-gray-600">
-Download your signed PDF instantly.
-</p>
-</div>
+                        <p className="text-gray-600">
+                            Download your signed PDF instantly.
+                        </p>
+                    </div>
 
-</div>
+                </div>
 
-</section>
+            </section>
 
-{/* ================= Features ================= */}
+            {/* ================= Features ================= */}
 
-<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+            <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
-<h2 className="mb-6 text-3xl font-bold">
-Features
-</h2>
+                <h2 className="mb-6 text-3xl font-bold">
+                    Features
+                </h2>
 
-<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 
-<div className="rounded-lg border p-4">
-✅ Draw Digital Signature
-</div>
+                    <div className="rounded-lg border p-4">
+                        ✅ Draw Digital Signature
+                    </div>
 
-<div className="rounded-lg border p-4">
-✅ Drag & Position Signature
-</div>
+                    <div className="rounded-lg border p-4">
+                        ✅ Drag & Position Signature
+                    </div>
 
-<div className="rounded-lg border p-4">
-✅ Resize Signature
-</div>
+                    <div className="rounded-lg border p-4">
+                        ✅ Resize Signature
+                    </div>
 
-<div className="rounded-lg border p-4">
-✅ Preserve PDF Quality
-</div>
+                    <div className="rounded-lg border p-4">
+                        ✅ Preserve PDF Quality
+                    </div>
 
-<div className="rounded-lg border p-4">
-✅ Browser Based
-</div>
+                    <div className="rounded-lg border p-4">
+                        ✅ Browser Based
+                    </div>
 
-<div className="rounded-lg border p-4">
-✅ Mobile Friendly
-</div>
+                    <div className="rounded-lg border p-4">
+                        ✅ Mobile Friendly
+                    </div>
 
-<div className="rounded-lg border p-4">
-✅ Fast Processing
-</div>
+                    <div className="rounded-lg border p-4">
+                        ✅ Fast Processing
+                    </div>
 
-<div className="rounded-lg border p-4">
-✅ Secure File Handling
-</div>
+                    <div className="rounded-lg border p-4">
+                        ✅ Secure File Handling
+                    </div>
 
-<div className="rounded-lg border p-4">
-✅ Free to Use
-</div>
+                    <div className="rounded-lg border p-4">
+                        ✅ Free to Use
+                    </div>
 
-</div>
+                </div>
 
-</section>
+            </section>
 
-{/* ================= Common Uses ================= */}
+            {/* ================= Common Uses ================= */}
 
-<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+            <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
-<h2 className="mb-5 text-3xl font-bold">
-Common Uses
-</h2>
+                <h2 className="mb-5 text-3xl font-bold">
+                    Common Uses
+                </h2>
 
-<p className="mb-5 leading-8 text-gray-700">
-Adding a digital signature is useful for contracts, legal agreements,
-employment forms, invoices, purchase orders, rental documents, permission
-letters, business proposals, educational documents, and many other PDF files.
-</p>
+                <p className="mb-5 leading-8 text-gray-700">
+                    Adding a digital signature is useful for contracts, legal agreements,
+                    employment forms, invoices, purchase orders, rental documents, permission
+                    letters, business proposals, educational documents, and many other PDF files.
+                </p>
 
-<p className="leading-8 text-gray-700">
-Instead of printing and scanning paperwork, you can sign documents digitally
-and share them immediately, saving both time and paper.
-</p>
+                <p className="leading-8 text-gray-700">
+                    Instead of printing and scanning paperwork, you can sign documents digitally
+                    and share them immediately, saving both time and paper.
+                </p>
 
-</section>
+            </section>
 
-{/* ================= Benefits ================= */}
+            {/* ================= Benefits ================= */}
 
-<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+            <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
-<h2 className="mb-5 text-3xl font-bold">
-Why Use Our PDF Signature Tool?
-</h2>
+                <h2 className="mb-5 text-3xl font-bold">
+                    Why Use Our PDF Signature Tool?
+                </h2>
 
-<p className="mb-5 leading-8 text-gray-700">
-Our online signature tool allows you to create a handwritten signature without
-installing desktop software. Your signature can be positioned exactly where it
-is needed, making documents look professional and ready for sharing.
-</p>
+                <p className="mb-5 leading-8 text-gray-700">
+                    Our online signature tool allows you to create a handwritten signature without
+                    installing desktop software. Your signature can be positioned exactly where it
+                    is needed, making documents look professional and ready for sharing.
+                </p>
 
-<p className="leading-8 text-gray-700">
-The original formatting, fonts, images, and page layout remain unchanged after
-adding your signature.
-</p>
+                <p className="leading-8 text-gray-700">
+                    The original formatting, fonts, images, and page layout remain unchanged after
+                    adding your signature.
+                </p>
 
-</section>
+            </section>
 
-{/* ================= Privacy ================= */}
+            {/* ================= Privacy ================= */}
 
-<section className="mt-12 rounded-2xl bg-blue-50 p-8">
+            <section className="mt-12 rounded-2xl bg-blue-50 p-8">
 
-<h2 className="mb-4 text-3xl font-bold">
-Privacy & Security
-</h2>
+                <h2 className="mb-4 text-3xl font-bold">
+                    Privacy & Security
+                </h2>
 
-<p className="leading-8 text-gray-700">
-Your documents and signatures are processed securely. Uploaded PDF files are
-not permanently stored, helping protect your confidential information and
-personal documents.
-</p>
+                <p className="leading-8 text-gray-700">
+                    Your documents and signatures are processed securely. Uploaded PDF files are
+                    not permanently stored, helping protect your confidential information and
+                    personal documents.
+                </p>
 
-</section>
+            </section>
 
-{/* ================= FAQ ================= */}
+            {/* ================= FAQ ================= */}
 
-<section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
+            <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
-<h2 className="mb-6 text-3xl font-bold">
-Frequently Asked Questions
-</h2>
+                <h2 className="mb-6 text-3xl font-bold">
+                    Frequently Asked Questions
+                </h2>
 
-<div className="space-y-6">
+                <div className="space-y-6">
 
-<div>
-<h3 className="text-lg font-semibold">
-Is this PDF signature tool free?
-</h3>
+                    <div>
+                        <h3 className="text-lg font-semibold">
+                            Is this PDF signature tool free?
+                        </h3>
 
-<p className="mt-2 text-gray-600">
-Yes. You can add a handwritten signature to PDF documents online free of
-charge.
-</p>
-</div>
+                        <p className="mt-2 text-gray-600">
+                            Yes. You can add a handwritten signature to PDF documents online free of
+                            charge.
+                        </p>
+                    </div>
 
-<div>
-<h3 className="text-lg font-semibold">
-Can I move my signature?
-</h3>
+                    <div>
+                        <h3 className="text-lg font-semibold">
+                            Can I move my signature?
+                        </h3>
 
-<p className="mt-2 text-gray-600">
-Yes. After saving your signature, you can drag and reposition it before
-downloading the final PDF.
-</p>
-</div>
+                        <p className="mt-2 text-gray-600">
+                            Yes. After saving your signature, you can drag and reposition it before
+                            downloading the final PDF.
+                        </p>
+                    </div>
 
-<div>
-<h3 className="text-lg font-semibold">
-Will my PDF formatting change?
-</h3>
+                    <div>
+                        <h3 className="text-lg font-semibold">
+                            Will my PDF formatting change?
+                        </h3>
 
-<p className="mt-2 text-gray-600">
-No. Your original document layout, fonts, images, and formatting remain
-unchanged.
-</p>
-</div>
+                        <p className="mt-2 text-gray-600">
+                            No. Your original document layout, fonts, images, and formatting remain
+                            unchanged.
+                        </p>
+                    </div>
 
-<div>
-<h3 className="text-lg font-semibold">
-Can I use this on mobile devices?
-</h3>
+                    <div>
+                        <h3 className="text-lg font-semibold">
+                            Can I use this on mobile devices?
+                        </h3>
 
-<p className="mt-2 text-gray-600">
-Yes. The tool works on Android phones, iPhones, tablets, and desktop
-computers.
-</p>
-</div>
+                        <p className="mt-2 text-gray-600">
+                            Yes. The tool works on Android phones, iPhones, tablets, and desktop
+                            computers.
+                        </p>
+                    </div>
 
-<div>
-<h3 className="text-lg font-semibold">
-Are my documents secure?
-</h3>
+                    <div>
+                        <h3 className="text-lg font-semibold">
+                            Are my documents secure?
+                        </h3>
 
-<p className="mt-2 text-gray-600">
-Yes. Files are processed securely and are not permanently stored after
-processing.
-</p>
-</div>
+                        <p className="mt-2 text-gray-600">
+                            Yes. Files are processed securely and are not permanently stored after
+                            processing.
+                        </p>
+                    </div>
 
-</div>
+                </div>
 
-</section>
+            </section>
         </div>
     );
 }
