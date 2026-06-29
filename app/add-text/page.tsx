@@ -76,8 +76,14 @@ export default function AddTextPage() {
       });
     });
 
+
     const outBytes = await pdfDoc.save();
-    const blob = new Blob([outBytes], { type: "application/pdf" });
+
+    const arrayBuffer = outBytes.slice().buffer as ArrayBuffer;
+
+    const blob = new Blob([arrayBuffer], {
+      type: "application/pdf",
+    });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
