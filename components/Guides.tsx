@@ -88,7 +88,7 @@ export default function HowToPdfGuides() {
                         </ul>
 
                         <Link
-                            href="/edit-pdf"
+                            href="/pdf-editor"
                             className="mt-12 inline-flex items-center gap-3 text-2xl font-semibold text-emerald-500 hover:text-emerald-600"
                         >
                             Edit PDF files
@@ -136,7 +136,7 @@ export default function HowToPdfGuides() {
                     </ul>
 
                     <Link
-                        href="/pdf-to-word"
+                              href="/pdf-editor"
                         className="mt-10 inline-flex items-center gap-3 text-2xl font-bold text-[#4094F7] transition hover:gap-5"
                     >
                         PDF to DOC converter
@@ -170,7 +170,7 @@ export default function HowToPdfGuides() {
                         </ul>
 
                         <Link
-                            href="/combine-pdf"
+                              href="/pdf-editor"
                             className="mt-12 inline-flex items-center gap-3 text-2xl font-semibold text-emerald-500 hover:text-emerald-600"
                         >
                             Combine PDF files
@@ -210,13 +210,13 @@ export default function HowToPdfGuides() {
                         ))}
                     </ul>
 
-                    <Link
-                        href="/pdf-to-word"
+                    <div
+                           
                         className="mt-10 inline-flex items-center gap-3 text-2xl font-bold text-[#4094F7] transition hover:gap-5"
                     >
                         PDF to image converter
                         <ArrowRight size={32} />
-                    </Link>
+                    </div>
                 </div>
             </section>
             <section className="bg-white py-20">
@@ -244,13 +244,13 @@ export default function HowToPdfGuides() {
                             ))}
                         </ul>
 
-                        <Link
-                            href="/combine-pdf"
+                        <div
+                    
                             className="mt-12 inline-flex items-center gap-3 text-2xl font-semibold text-emerald-500 hover:text-emerald-600"
                         >
                             Remove PDF pages
                             <ArrowRight size={20} />
-                        </Link>
+                        </div>
 
                     </div>
 
@@ -295,13 +295,13 @@ export default function HowToPdfGuides() {
                         </li>
                     </ul>
 
-                    <Link
-                        href="/pdf-to-word"
+                    <div
+            
                         className="mt-10 inline-flex items-center gap-3 text-2xl font-bold text-[#4094F7] transition hover:gap-5"
                     >
                         Edit PDF offline with Sejda Desktop for Mac
                         <ArrowRight size={22} />
-                    </Link>
+                    </div>
                 </div>
             </section>
             <section className="bg-white py-20">
@@ -329,13 +329,13 @@ export default function HowToPdfGuides() {
                             ))}
                         </ul>
 
-                        <Link
-                            href="/combine-pdf"
+                        <div
+                        
                             className="mt-12 inline-flex items-center gap-3 text-2xl font-semibold text-emerald-500 hover:text-emerald-600"
                         >
                             Type on PDF files
                             <ArrowRight size={20} />
-                        </Link>
+                        </div>
 
                     </div>
 
@@ -399,13 +399,13 @@ export default function HowToPdfGuides() {
                         </li>
                     </ul>
 
-                    <Link
-                        href="/pdf-to-word"
+                    <div
+            
                         className="mt-10 inline-flex items-center gap-3 text-2xl font-bold text-[#4094F7] transition hover:gap-5"
                     >
                         Protect PDF with password and restrictions
                         <ArrowRight size={22} />
-                    </Link>
+                    </div>
                 </div>
             </section>
 
@@ -438,13 +438,13 @@ export default function HowToPdfGuides() {
                             ))}
                         </ul>
 
-                        <Link
-                            href="/combine-pdf"
+                        <div
+                      
                             className="mt-12 inline-flex items-center gap-3 text-2xl font-semibold text-emerald-500 hover:text-emerald-600"
                         >
                             Compress PDF online
                             <ArrowRight size={20} />
-                        </Link>
+                        </div>
 
                     </div>
 
