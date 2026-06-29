@@ -73,10 +73,16 @@ const handleFile = async (
       canvas.width = viewport.width;
       canvas.height = viewport.height;
 
+      // await page.render({
+      //   canvasContext: context,
+      //   viewport,
+      // }).promise;
+
       await page.render({
-        canvasContext: context,
-        viewport,
-      }).promise;
+  canvas,
+  canvasContext: context,
+  viewport,
+}).promise;
 
       output.push(
         canvas.toDataURL("image/png")
