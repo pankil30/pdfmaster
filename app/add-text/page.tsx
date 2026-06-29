@@ -1,4 +1,3 @@
-// npm install react-pdf pdf-lib
 "use client";
 
 import { useRef, useState } from "react";
