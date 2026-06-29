@@ -1,12 +1,28 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
+import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
+
+// pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
+const Document = dynamic(
+  () => import("react-pdf").then((mod) => mod.Document),
+  {
+    ssr: false,
+  }
+);
+
+const Page = dynamic(
+  () => import("react-pdf").then((mod) => mod.Page),
+  {
+    ssr: false,
+  }
+);
 
 interface TextItem {
   id: string;
@@ -54,6 +70,15 @@ export default function AddTextPage() {
 
   const removeText = (id: string) =>
     setTextItems((prev) => prev.filter((i) => i.id !== id));
+
+useEffect(() => {
+  (async () => {
+    const { pdfjs } = await import("react-pdf");
+
+    pdfjs.GlobalWorkerOptions.workerSrc =
+      `https://unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
+  })();
+}, []);
 
   const handleDownload = async () => {
     if (!pdfBytes) return;
