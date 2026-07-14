@@ -31,6 +31,6 @@ export default function ToolCard({
         Open Tool
         <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
       </div>
-    </Link> 
+    </Link>
   );
-} 
+}
