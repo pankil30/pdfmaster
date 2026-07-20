@@ -1,0 +1,16 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g-scanned-photos-to-searchable-pdf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g-scanned-photos-to-searchable-pdf)"/>
+  <circle cx="740" cy="60" r="140" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="70" cy="410" r="110" fill="rgba(255,255,255,0.07)"/>
+  <path d="M310 110
+      h154 l26 26 v204 h-180 z"
+      fill="rgba(255,255,255,0.95)" stroke="rgba(0,0,0,0.08)" stroke-width="2"/>
+    <path d="M464 110 v26 h26 z" fill="rgba(0,0,0,0.12)"/><rect x="340" y="160" width="110" height="8" rx="4" fill="rgba(0,0,0,0.15)"/><rect x="340" y="182" width="110" height="8" rx="4" fill="rgba(0,0,0,0.15)"/><rect x="340" y="204" width="110" height="8" rx="4" fill="rgba(0,0,0,0.15)"/><rect x="340" y="226" width="110" height="8" rx="4" fill="rgba(0,0,0,0.15)"/><circle cx="455" cy="285" r="24" fill="#10b981"/><path d="M444 285 l7 8 l16 -18" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="40" y="418" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="rgba(255,255,255,0.9)">SEARCHABLE PDF</text>
+</svg>

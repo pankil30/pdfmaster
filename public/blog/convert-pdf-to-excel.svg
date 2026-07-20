@@ -1,0 +1,16 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g-convert-pdf-to-excel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g-convert-pdf-to-excel)"/>
+  <circle cx="740" cy="60" r="140" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="70" cy="410" r="110" fill="rgba(255,255,255,0.07)"/>
+  <path d="M310 110
+      h154 l26 26 v204 h-180 z"
+      fill="rgba(255,255,255,0.95)" stroke="rgba(0,0,0,0.08)" stroke-width="2"/>
+    <path d="M464 110 v26 h26 z" fill="rgba(0,0,0,0.12)"/><rect x="340" y="165" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/><rect x="378" y="165" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/><rect x="416" y="165" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/><rect x="340" y="200" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/><rect x="378" y="200" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/><rect x="416" y="200" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/><rect x="340" y="235" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/><rect x="378" y="235" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/><rect x="416" y="235" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/><rect x="340" y="270" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/><rect x="378" y="270" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/><rect x="416" y="270" width="34" height="29" fill="rgba(16,163,74,0.18)" stroke="rgba(16,163,74,0.5)" stroke-width="2"/>
+  <text x="40" y="418" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="rgba(255,255,255,0.9)">PDF → EXCEL</text>
+</svg>

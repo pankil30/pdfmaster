@@ -1,0 +1,19 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g-compare-two-pdf-files" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#d946ef"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g-compare-two-pdf-files)"/>
+  <circle cx="740" cy="60" r="140" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="70" cy="410" r="110" fill="rgba(255,255,255,0.07)"/>
+  <path d="M265 120
+      h84 l26 26 v144 h-110 z"
+      fill="rgba(255,255,255,0.9)" stroke="rgba(0,0,0,0.08)" stroke-width="2"/>
+    <path d="M349 120 v26 h26 z" fill="rgba(0,0,0,0.12)"/><path d="M405 120
+      h84 l26 26 v144 h-110 z"
+      fill="rgba(255,255,255,0.9)" stroke="rgba(0,0,0,0.08)" stroke-width="2"/>
+    <path d="M489 120 v26 h26 z" fill="rgba(0,0,0,0.12)"/><circle cx="405" cy="205" r="24" fill="#8b5cf6"/><path d="M395 205 l7 8 l14 -16" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="40" y="418" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="rgba(255,255,255,0.9)">COMPARE FILES</text>
+</svg>

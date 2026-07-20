@@ -44,10 +44,10 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "PDFMaster - Free Online PDF Tools",
-    description:
-      "Merge, Split, Rotate and Convert PDFs online for free.",
+    description: "Merge, Split, Rotate and Convert PDFs online for free.",
     type: "website",
-    url: "https://your-domain.com",
+    // FIXED: was "https://your-domain.com" placeholder
+    url: "https://www.masterpdf.in",
     siteName: "PDFMaster",
   },
 
@@ -75,10 +75,15 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-gray-50 text-gray-900">
         <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
         <Footer />
+
+        {/*
+          TODO: Replace G-XXXXXXXXXX below with your real GA4 Measurement ID.
+          Get it from analytics.google.com > Admin > Data Streams > your web stream.
+          Until this is a real ID, GTM will keep failing to send data (and any
+          ad-blocker extension will report errors trying to block those failed calls).
+        */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
           strategy="afterInteractive"
@@ -91,6 +96,23 @@ export default function RootLayout({
     gtag('js', new Date());
 
     gtag('config', 'G-XXXXXXXXXX');
+  `}
+        </Script>
+
+        {/*
+          Suppresses console noise from browser extensions (ad-blockers, privacy tools)
+          that throw "Failed to fetch" errors when blocking third-party scripts like GTM.
+          This does NOT affect your app's real functionality or real visitors —
+          it only filters extension-originated unhandled rejections from your dev console.
+        */}
+        <Script id="suppress-extension-errors" strategy="beforeInteractive">
+          {`
+    window.addEventListener('unhandledrejection', function (event) {
+      var stack = (event.reason && event.reason.stack) || '';
+      if (stack.indexOf('chrome-extension://') !== -1) {
+        event.preventDefault();
+      }
+    });
   `}
         </Script>
       </body>

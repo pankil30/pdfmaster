@@ -1,0 +1,16 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g-split-pdf-into-multiple-files" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g-split-pdf-into-multiple-files)"/>
+  <circle cx="740" cy="60" r="140" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="70" cy="410" r="110" fill="rgba(255,255,255,0.07)"/>
+  <path d="M310 110
+      h154 l26 26 v204 h-180 z"
+      fill="rgba(255,255,255,0.95)" stroke="rgba(0,0,0,0.08)" stroke-width="2"/>
+    <path d="M464 110 v26 h26 z" fill="rgba(0,0,0,0.12)"/><line x1="325" y1="225" x2="475" y2="225" stroke="rgba(0,0,0,0.3)" stroke-width="4" stroke-dasharray="10 8"/><circle cx="340" cy="205" r="10" fill="none" stroke="rgba(0,0,0,0.45)" stroke-width="6"/><circle cx="340" cy="245" r="10" fill="none" stroke="rgba(0,0,0,0.45)" stroke-width="6"/><line x1="348" y1="210" x2="405" y2="225" stroke="rgba(0,0,0,0.45)" stroke-width="6" stroke-linecap="round"/><line x1="348" y1="240" x2="405" y2="225" stroke="rgba(0,0,0,0.45)" stroke-width="6" stroke-linecap="round"/>
+  <text x="40" y="418" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="rgba(255,255,255,0.9)">SPLIT</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g-convert-powerpoint-to-pdf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g-convert-powerpoint-to-pdf)"/>
+  <circle cx="740" cy="60" r="140" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="70" cy="410" r="110" fill="rgba(255,255,255,0.07)"/>
+  <path d="M310 110
+      h154 l26 26 v204 h-180 z"
+      fill="rgba(255,255,255,0.95)" stroke="rgba(0,0,0,0.08)" stroke-width="2"/>
+    <path d="M464 110 v26 h26 z" fill="rgba(0,0,0,0.12)"/><rect x="340" y="165" width="120" height="80" rx="6" fill="rgba(217,88,33,0.15)" stroke="rgba(217,88,33,0.5)" stroke-width="3"/><path d="M385 185 l35 20 l-35 20 z" fill="#ea580c"/><rect x="340" y="260" width="110" height="8" rx="4" fill="rgba(0,0,0,0.15)"/><rect x="340" y="286" width="110" height="8" rx="4" fill="rgba(0,0,0,0.15)"/>
+  <text x="40" y="418" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="rgba(255,255,255,0.9)">PPT → PDF</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g-extract-pages-from-pdf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g-extract-pages-from-pdf)"/>
+  <circle cx="740" cy="60" r="140" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="70" cy="410" r="110" fill="rgba(255,255,255,0.07)"/>
+  <path d="M290 110
+      h124 l26 26 v174 h-150 z"
+      fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.08)" stroke-width="2"/>
+    <path d="M414 110 v26 h26 z" fill="rgba(0,0,0,0.12)"/><path d="M380 150
+      h84 l26 26 v124 h-110 z"
+      fill="rgba(255,255,255,1)" stroke="rgba(0,0,0,0.08)" stroke-width="2"/>
+    <path d="M464 150 v26 h26 z" fill="rgba(0,0,0,0.12)"/><path d="M365 230 h50 M400 215 l20 15 l-20 15" fill="none" stroke="#ef4444" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="40" y="418" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="rgba(255,255,255,0.9)">EXTRACT</text>
+</svg>
