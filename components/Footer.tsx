@@ -36,13 +36,14 @@ export default function Footer() {
               <div className="mt-3 flex flex-col gap-2">
                 <Link href="/about">About</Link>
                 <Link href="/contact">Contact</Link>
+                <Link href="/blog">Blog</Link>
               </div>
             </div>
 
             <div>
               <h3 className="font-semibold">Legal</h3>
               <div className="mt-3 flex flex-col gap-2">
-                <Link href="/privacy-policy">Privacy Policy</Link>
+                <Link href="/privacy">Privacy Policy</Link>
                 <Link href="/terms">Terms</Link>
               </div>
             </div>
@@ -50,52 +51,43 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex items-center gap-4">
-
-            <div className="grid grid-cols-2 gap-4">
-
-
-
-</div>
-            {/* <a
+            <a
               href="https://facebook.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-blue-600 hover:text-white transition"
+              className="rounded-full bg-gray-100 p-2 text-gray-600 transition hover:bg-red-500 hover:text-white"
             >
-              <FaFacebookF />
+              <FaFacebookF size={16} />
             </a>
-
             <a
               href="https://twitter.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-sky-500 hover:text-white transition"
+              className="rounded-full bg-gray-100 p-2 text-gray-600 transition hover:bg-red-500 hover:text-white"
             >
-              <FaTwitter />
+              <FaTwitter size={16} />
             </a>
-
             <a
-              href="https://linkedin.com/in/yourpage"
+              href="https://linkedin.com/company/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-blue-700 hover:text-white transition"
+              className="rounded-full bg-gray-100 p-2 text-gray-600 transition hover:bg-red-500 hover:text-white"
             >
-              <FaLinkedinIn />
+              <FaLinkedinIn size={16} />
             </a>
-
             <a
               href="https://instagram.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-pink-600 hover:text-white transition"
+              className="rounded-full bg-gray-100 p-2 text-gray-600 transition hover:bg-red-500 hover:text-white"
             >
-              <FaInstagram />
-            </a> */}
+              <FaInstagram size={16} />
+            </a>
           </div>
         </div>
 
         <div className="mt-8 border-t pt-6 text-center text-sm text-gray-500">
-          © 2026 PDFMaster. All rights reserved.
+          © {new Date().getFullYear()} PDFMaster. All rights reserved.
         </div>
       </div>
     </footer>

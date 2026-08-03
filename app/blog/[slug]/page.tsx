@@ -92,13 +92,13 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Hero image */}
       <div className="relative aspect-[21/9] w-full overflow-hidden bg-gray-100">
-<Image
-  src={post.image}
-  alt={post.title}
-  fill
-  priority
-  className="object-cover"
-/>
+        <Image
+          src={post.image}
+          alt={post.title}
+          fill
+          priority
+          className="object-cover"
+        />
       </div>
 
       <article className="mx-auto max-w-3xl px-6 py-12">

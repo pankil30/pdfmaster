@@ -3,12 +3,19 @@ import ToolCard from "@/components/ToolCard";
 import FaqSection from "@/components/FaqSection";
 import CTASection from "@/components/CTASection";
 import WhyChooseUs from "@/components/WhyChooseUs";
-
 import Link from "next/link";
 import Guides from "@/components/Guides";
 import WorksSection from "@/components/WorksSection";
+import BlogPreview from "@/components/BlogPreview";
 
-const tools = [
+interface Tool {
+  title: string;
+  href: string;
+  description: string;
+  category: string;
+}
+
+const tools: Tool[] = [
   {
     title: "Add Signature",
     href: "/add-signature",
@@ -83,8 +90,7 @@ const tools = [
   },
   {
     title: "OCR Editor",
-    description:
-      "Extract and edit text from images and PDFs",
+    description: "Extract and edit text from images and PDFs",
     href: "/ocr-editor",
     category: "Edit",
   },
@@ -93,8 +99,6 @@ const tools = [
 export default function Home() {
   return (
     <>
-
-
       <Hero />
 
       {/* Stats */}
@@ -102,22 +106,17 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 md:grid-cols-4">
             <div className="rounded-2xl border bg-white p-6 text-center shadow-sm">
-              <h3 className="text-3xl font-bold text-red-500">
-                11+
-              </h3>
+              <h3 className="text-3xl font-bold text-red-500">11+</h3>
               <p className="mt-2 text-gray-600">PDF Tools</p>
             </div>
-
             <div className="rounded-2xl border bg-white p-6 text-center shadow-sm">
               <h3 className="text-3xl font-bold text-red-500">100%</h3>
               <p className="mt-2 text-gray-600">Free</p>
             </div>
-
             <div className="rounded-2xl border bg-white p-6 text-center shadow-sm">
               <h3 className="text-3xl font-bold text-red-500">Fast</h3>
               <p className="mt-2 text-gray-600">Processing</p>
             </div>
-
             <div className="rounded-2xl border bg-white p-6 text-center shadow-sm">
               <h3 className="text-3xl font-bold text-red-500">Secure</h3>
               <p className="mt-2 text-gray-600">Files</p>
@@ -127,20 +126,13 @@ export default function Home() {
       </section>
 
       {/* Tools Section */}
-      <section
-        id="tools"
-        className="mx-auto max-w-7xl px-6 py-20 scroll-mt-20"
-      >
+      <section id="tools" className="mx-auto max-w-7xl px-6 py-20 scroll-mt-20">
         <div className="mb-12 text-center">
-          <h2 className="text-4xl font-bold">
-            Popular PDF Tools
-          </h2>
-
+          <h2 className="text-4xl font-bold">Popular PDF Tools</h2>
           <p className="mt-4 text-gray-600">
             Free online tools to edit, convert and manage PDF files.
           </p>
         </div>
-
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {tools.map((tool) => (
             <ToolCard
@@ -152,7 +144,6 @@ export default function Home() {
             />
           ))}
         </div>
-
         <div className="mt-12 text-center">
           <Link
             href="/tools"
@@ -162,14 +153,16 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
       <WorksSection />
       <Guides />
 
-      {/* <TrustSection /> */}
+      {/* ✅ Blog Preview Section */}
+      <BlogPreview />
+
       <WhyChooseUs />
       <FaqSection />
       <CTASection />
-     
     </>
   );
 }
