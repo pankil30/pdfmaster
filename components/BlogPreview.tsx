@@ -33,7 +33,7 @@ export default function BlogPreview() {
             href={`/blog/${post.slug}`}
             className="group overflow-hidden rounded-2xl border bg-white transition hover:-translate-y-1 hover:shadow-lg"
           >
-            {/* Image */}
+         
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100">
               <Image
                 src={post.image}
@@ -43,7 +43,7 @@ export default function BlogPreview() {
               />
             </div>
 
-            {/* Content */}
+          
             <div className="p-6">
               <span className="inline-block rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-600">
                 {post.category}

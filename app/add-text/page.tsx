@@ -38,7 +38,8 @@ export default function AddTextPage() {
   const [pdfBytes, setPdfBytes] = useState<ArrayBuffer | null>(null);
   const [numPages, setNumPages] = useState(0);
   const [pageNum, setPageNum] = useState(1);
-  const [pageSize, setPageSize] = useState({ width: 0, height: 0 });
+  
+  const [pageDimensions, setPageDimensions] = useState<Record<number, {width: number, height: number}>>({});
   const [textItems, setTextItems] = useState<TextItem[]>([]);
   const pageRef = useRef<HTMLDivElement>(null);
 
@@ -89,30 +90,35 @@ useEffect(() => {
     textItems.forEach((item) => {
       const page = pages[item.page - 1];
       if (!page) return;
-      const scaleX = page.getWidth() / pageSize.width;
-      const scaleY = page.getHeight() / pageSize.height;
+      // Important: Use the pageDimensions map (see Step 1 below)
+      const dims = pageDimensions[item.page]; 
+      if (!dims) return; 
+      
+      const scaleX = page.getWidth() / dims.width;
+      const scaleY = page.getHeight() / dims.height;
       page.drawText(item.text, {
         x: item.x * scaleX,
-        y: page.getHeight() - item.y * scaleY,
+        y: page.getHeight() - item.y * scaleY, // Flips Y coordinates for PDF
         size: item.fontSize,
         font,
         color: rgb(0, 0, 0),
       });
     });
 
-
+    // --- FIX START: No .slice().buffer ---
     const outBytes = await pdfDoc.save();
 
-    const arrayBuffer = outBytes.slice().buffer as ArrayBuffer;
+    // Modern browsers accept Uint8Array directly in Blob. No cast needed.
+    const blob = new Blob([outBytes], { type: "application/pdf" });
+    // --- FIX END ---
 
-    const blob = new Blob([arrayBuffer], {
-      type: "application/pdf",
-    });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
     a.download = "edited.pdf";
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
 
@@ -157,9 +163,12 @@ useEffect(() => {
             style={{ cursor: "crosshair" }}
           >
             <Document file={pdfFile} onLoadSuccess={(d) => setNumPages(d.numPages)}>
-              <Page
+                           <Page
                 pageNumber={pageNum}
-                onLoadSuccess={(p) => setPageSize({ width: p.width, height: p.height })}
+                onLoadSuccess={(p) => setPageDimensions((prev) => ({ 
+                  ...prev, 
+                  [pageNum]: { width: p.width, height: p.height } 
+                }))}
                 renderAnnotationLayer={false}
                 renderTextLayer={false}
               />

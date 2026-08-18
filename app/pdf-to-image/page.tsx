@@ -1,21 +1,4 @@
-// "use client";
 
-// import { useEffect, useState } from "react";
-// import * as pdfjsLib from "pdfjs-dist";
-
-// import {
-//   FileImage,
-//   Loader2,
-//   Upload,
-// } from "lucide-react";
-
-// const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
-
-// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-//   "pdfjs-dist/build/pdf.worker.min.mjs",
-//   import.meta.url
-// ).toString();
-// export default function PdfToImagePage() {
 
 
 "use client";
@@ -87,10 +70,7 @@ export default function PdfToImagePage() {
         canvas.width = viewport.width;
         canvas.height = viewport.height;
 
-        // await page.render({
-        //   canvasContext: context,
-        //   viewport,
-        // }).promise;
+      
 
         await page.render({
           canvas,
@@ -223,7 +203,7 @@ export default function PdfToImagePage() {
           </div>
         )}
       </div>
-      {/* ================= About PDF to Image ================= */}
+     
 
       <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
         <h2 className="mb-5 text-3xl font-bold">
@@ -249,8 +229,7 @@ export default function PdfToImagePage() {
         </p>
       </section>
 
-      {/* ================= How It Works ================= */}
-
+     
       <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
         <h2 className="mb-6 text-3xl font-bold">
           How to Convert PDF to Images
@@ -301,7 +280,7 @@ export default function PdfToImagePage() {
         </div>
       </section>
 
-      {/* ================= Features ================= */}
+    
 
       <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
@@ -351,7 +330,7 @@ export default function PdfToImagePage() {
 
       </section>
 
-      {/* ================= Benefits ================= */}
+     
 
       <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
@@ -380,7 +359,7 @@ export default function PdfToImagePage() {
 
       </section>
 
-      {/* ================= Privacy ================= */}
+   
 
       <section className="mt-12 rounded-2xl bg-blue-50 p-8">
 

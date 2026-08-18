@@ -36,7 +36,13 @@ export default function ImageToPdfPage() {
             });
 
             if (!res.ok) {
-                throw new Error("Failed to convert");
+                // FIXED: Attempt to read the backend's specific error message
+                let errorMsg = "Failed to convert";
+                try {
+                    const errData = await res.json();
+                    if (errData?.error) errorMsg = errData.error;
+                } catch {}
+                throw new Error(errorMsg);
             }
 
             const blob = await res.blob();
@@ -62,13 +68,12 @@ export default function ImageToPdfPage() {
             reader.readAsDataURL(blob);
 
             return;
-        } catch {
-            setError("Something went wrong.");
-            setLoading(false);
-
-        } finally {
+        } catch (err: any) {
+            // FIXED: Read actual error message and stop loading
+            setError(err.message || "Something went wrong.");
             setLoading(false);
         }
+     
     };
     useEffect(() => {
         if (countdown === null) return;
@@ -141,7 +146,7 @@ export default function ImageToPdfPage() {
                     )}
                 </button>
 
-                {/* -------------------- About -------------------- */}
+               
 
 <section className="mt-12 rounded-xl border bg-white p-6 shadow-sm">
   <h2 className="mb-4 text-3xl font-bold">
@@ -167,7 +172,7 @@ export default function ImageToPdfPage() {
   </p>
 </section>
 
-{/* -------------------- How It Works -------------------- */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-6 shadow-sm">
   <h2 className="mb-6 text-3xl font-bold">
@@ -192,7 +197,7 @@ export default function ImageToPdfPage() {
       </h3>
 
       <p className="text-gray-600">
-        Arrange your images in the order you want inside the PDF.
+        Select the order by choosing files in the sequence you want them to appear.
       </p>
     </div>
 
@@ -219,7 +224,7 @@ export default function ImageToPdfPage() {
   </div>
 </section>
 
-{/* -------------------- Features -------------------- */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-6 shadow-sm">
 
@@ -281,7 +286,7 @@ Features
 
 </section>
 
-{/* -------------------- Benefits -------------------- */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-6 shadow-sm">
 

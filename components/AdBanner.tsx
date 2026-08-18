@@ -3,12 +3,6 @@
 import { useEffect } from "react";
 
 export default function AdBanner() {
-  // useEffect(() => {
-  //   try {
-  //     (window as any).adsbygoogle = (window as any).adsbygoogle || [];
-  //     (window as any).adsbygoogle.push({});
-  //   } catch (e) {}
-  // }, []);
 
   return (
     <div className="my-6 text-center">

@@ -127,7 +127,7 @@ export default function ProtectPdfPage() {
               : "Protect PDF"}
         </button>
       </div>
-      {/* ================= About Protect PDF ================= */}
+  
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-5 text-3xl font-bold">
@@ -154,7 +154,7 @@ export default function ProtectPdfPage() {
   </p>
 </section>
 
-{/* ================= How It Works ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -208,7 +208,7 @@ Download your password-protected PDF file.
 
 </section>
 
-{/* ================= Features ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -258,7 +258,7 @@ Features
 
 </section>
 
-{/* ================= Benefits ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -286,7 +286,7 @@ adding password protection.
 
 </section>
 
-{/* ================= Password Tips ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -304,7 +304,7 @@ Tips for Creating a Strong Password
 
 </section>
 
-{/* ================= Security ================= */}
+
 
 <section className="mt-12 rounded-xl bg-blue-50 p-8">
 
@@ -320,7 +320,7 @@ and business information.
 
 </section>
 
-{/* ================= FAQ ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 

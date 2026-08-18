@@ -1,23 +1,27 @@
 export default function WhyChooseUs() {
   const features = [
     {
-      title: "100% Free",
-      description: "All PDF tools are completely free to use.",
+      title: "Actually Free",
+      description:
+        "No paywall after the third file, no watermarks, no premium tier for basic tools. Merge, split, compress — all of it, free.",
       icon: "💯",
     },
     {
-      title: "Secure Files",
-      description: "Your files stay private and secure.",
+      title: "Files Auto-Deleted",
+      description:
+        "Uploads are used only to run the tool you picked, then removed from our servers shortly after — nothing sits around afterward.",
       icon: "🔒",
     },
     {
-      title: "Fast Processing",
-      description: "Process PDFs instantly in your browser.",
+      title: "Runs in Your Browser",
+      description:
+        "No install, no plugin. Upload a file and get your result back in seconds, right in the tab you're already on.",
       icon: "⚡",
     },
     {
-      title: "No Signup",
-      description: "Use all tools without creating an account.",
+      title: "No Account Needed",
+      description:
+        "Use any tool the moment you land on the page — no email, no signup form, no login wall in the way.",
       icon: "🚀",
     },
   ];

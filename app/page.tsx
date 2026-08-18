@@ -101,7 +101,7 @@ export default function Home() {
     <>
       <Hero />
 
-      {/* Stats */}
+  
       <section className="py-12">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 md:grid-cols-4">
@@ -125,7 +125,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tools Section */}
+
       <section id="tools" className="mx-auto max-w-7xl px-6 py-20 scroll-mt-20">
         <div className="mb-12 text-center">
           <h2 className="text-4xl font-bold">Popular PDF Tools</h2>

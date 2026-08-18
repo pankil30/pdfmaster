@@ -53,7 +53,7 @@ export default function AddSignaturePage() {
         setPdfFile(e.target.files[0]);
     };
 
-    async function signPDF() {
+     async function signPDF() {
         if (!pdfFile) {
             alert("Upload PDF first");
             return;
@@ -73,23 +73,18 @@ export default function AddSignaturePage() {
 
         const pngImage = await pdfDoc.embedPng(signature);
 
-        const pngDims = pngImage.scale(0.5);
-
+        // FIXED: Use the drag-and-drop position and size instead of hardcoded values
         firstPage.drawImage(pngImage, {
-            x: 100,
-            y: 100,
-            width: pngDims.width,
-            height: pngDims.height,
+            x: position.x, 
+            y: position.y,
+            width: size.width,
+            height: size.height,
         });
 
         const pdfBytes = await pdfDoc.save();
 
-        const arrayBuffer = new ArrayBuffer(pdfBytes.length);
-        const view = new Uint8Array(arrayBuffer);
-
-        view.set(pdfBytes);
-
-        const blob = new Blob([arrayBuffer], {
+        // FIXED: Simplified Blob creation (removed redundant ArrayBuffer logic)
+        const blob = new Blob([pdfBytes], {
             type: "application/pdf",
         });
 
@@ -175,7 +170,7 @@ export default function AddSignaturePage() {
                     />
                 )}
             </div>
-            {/* ================= About Add Signature to PDF ================= */}
+    
 
             <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
                 <h2 className="mb-5 text-3xl font-bold">
@@ -202,7 +197,7 @@ export default function AddSignaturePage() {
                 </p>
             </section>
 
-            {/* ================= How It Works ================= */}
+         
 
             <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
@@ -256,7 +251,6 @@ export default function AddSignaturePage() {
 
             </section>
 
-            {/* ================= Features ================= */}
 
             <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
@@ -306,7 +300,6 @@ export default function AddSignaturePage() {
 
             </section>
 
-            {/* ================= Common Uses ================= */}
 
             <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
@@ -327,7 +320,6 @@ export default function AddSignaturePage() {
 
             </section>
 
-            {/* ================= Benefits ================= */}
 
             <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 
@@ -348,7 +340,6 @@ export default function AddSignaturePage() {
 
             </section>
 
-            {/* ================= Privacy ================= */}
 
             <section className="mt-12 rounded-2xl bg-blue-50 p-8">
 
@@ -364,7 +355,6 @@ export default function AddSignaturePage() {
 
             </section>
 
-            {/* ================= FAQ ================= */}
 
             <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm">
 

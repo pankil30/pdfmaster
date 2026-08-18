@@ -18,16 +18,17 @@ export default function DownloadPage() {
         URL.revokeObjectURL(pdfData);
       }
     };
-  }, [pdfData]);
+  }, [pdfData]); 
 
   useEffect(() => {
     const pdf = sessionStorage.getItem("downloadPdf");
     const name = sessionStorage.getItem("downloadName");
 
-    Promise.resolve().then(() => {
+   
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (pdf) setPdfData(pdf);
       if (name) setFileName(name);
-    });
+
   }, []);
 
   useEffect(() => {
@@ -46,17 +47,35 @@ export default function DownloadPage() {
       return;
     }
 
-    const a =
-      document.createElement("a");
+    // If it's a base64 string, create a Blob to trigger the download
+    if (pdfData.startsWith("data:application/pdf;base64,")) {
+      const byteCharacters = atob(pdfData.split(",")[1]);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const blob = new Blob([byteArray], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
 
-    a.href = pdfData;
-    a.download = fileName;
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
 
-    document.body.appendChild(a);
-
-    a.click();
-
-    document.body.removeChild(a);
+      // Clean up the temporary blob URL after download starts
+      setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    } else {
+      // Fallback for old blob URLs (just in case)
+      const a = document.createElement("a");
+      a.href = pdfData;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
   };
 
   return (

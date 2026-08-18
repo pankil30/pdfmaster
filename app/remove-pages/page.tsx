@@ -125,7 +125,7 @@ export default function RemovePagesPage() {
               : "Remove Pages"}
         </button>
       </div>
-      {/* ================= About Remove PDF Pages ================= */}
+  
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-5 text-3xl font-bold">
@@ -152,7 +152,7 @@ export default function RemovePagesPage() {
   </p>
 </section>
 
-{/* ================= How It Works ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-6 text-3xl font-bold">
@@ -192,7 +192,7 @@ export default function RemovePagesPage() {
   </div>
 </section>
 
-{/* ================= Features ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -242,7 +242,7 @@ Features
 
 </section>
 
-{/* ================= Benefits ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -271,7 +271,7 @@ seconds.
 
 </section>
 
-{/* ================= Security ================= */}
+
 
 <section className="mt-12 rounded-xl bg-blue-50 p-8">
 
@@ -287,7 +287,7 @@ store your files, helping protect your personal and business information.
 
 </section>
 
-{/* ================= FAQ ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 

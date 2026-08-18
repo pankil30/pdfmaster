@@ -29,7 +29,7 @@ export default function BlogSearch({ posts }: { posts: BlogPost[] }) {
 
   return (
     <>
-      {/* Search */}
+    
       <div className="mx-auto mt-10 max-w-xl">
         <div className="flex items-center rounded-2xl border bg-white px-4">
           <Search className="h-5 w-5 text-gray-400" />
@@ -43,7 +43,7 @@ export default function BlogSearch({ posts }: { posts: BlogPost[] }) {
         </div>
       </div>
 
-      {/* Blog Grid */}
+     
       <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filteredPosts.map((post) => (
           <Link

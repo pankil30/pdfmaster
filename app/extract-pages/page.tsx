@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+
 import ToolLayout from "@/components/ToolLayout";
 import FileUpload from "@/components/FileUpload";
 import Alert from "@/components/Alert";
 import FileInfo from "@/components/FileInfo";
-import {useEffect} from "react";
+import { useState, useEffect } from "react";
+
 
 export default function ExtractPagesPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -42,9 +43,13 @@ export default function ExtractPagesPage() {
         method: "POST",
         body: formData,
       });
-
       if (!res.ok) {
-        throw new Error();
+        let errorMsg = "Failed to extract pages.";
+        try {
+          const errData = await res.json();
+          if (errData?.error) errorMsg = errData.error;
+        } catch {}
+        throw new Error(errorMsg);
       }
 
      const blob = await res.blob();
@@ -62,13 +67,15 @@ reader.onloadend = () => {
     `${file.name.replace(".pdf", "")}-extracted.pdf`
   );
 
+  // FIXED: Add a success message so the user knows it worked!
+  setSuccess("PDF pages extracted successfully! Download starting...");
   setLoading(false);
   setCountdown(5);
 };
 
 reader.readAsDataURL(blob);
-    } catch (err) {
-      setError("Failed to extract pages.");
+      } catch (err: any) {
+      setError(err.message || "Failed to extract pages.");
       setLoading(false);
     }
   };
@@ -139,7 +146,7 @@ reader.readAsDataURL(blob);
     : "Extract Pages"}
 </button>
       </div>
-      {/* ================= About Extract PDF Pages ================= */}
+     
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-5 text-3xl font-bold">
@@ -166,7 +173,7 @@ reader.readAsDataURL(blob);
   </p>
 </section>
 
-{/* ================= How It Works ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-6 text-3xl font-bold">
@@ -206,7 +213,7 @@ reader.readAsDataURL(blob);
   </div>
 </section>
 
-{/* ================= Features ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -256,7 +263,7 @@ Features
 
 </section>
 
-{/* ================= Benefits ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -283,7 +290,7 @@ quick, simple, and convenient without installing desktop software.
 
 </section>
 
-{/* ================= Privacy ================= */}
+
 
 <section className="mt-12 rounded-xl bg-blue-50 p-8">
 
@@ -299,7 +306,7 @@ stored, helping keep your personal and business files safe.
 
 </section>
 
-{/* ================= FAQ ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 

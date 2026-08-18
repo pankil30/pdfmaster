@@ -1,11 +1,14 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Free PDF Editor Online | PDFMaster",
   description:
     "Edit PDF files online for free. Add text, images, signatures, comments and more.",
+  alternates: {
+    canonical: "https://www.masterpdf.in/free-pdf-editor", // Important for SEO
+  },
 };
-
 export default function FreePdfEditor() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-16">
@@ -42,15 +45,15 @@ export default function FreePdfEditor() {
         </ul>
       </section>
 
-      <section className="mt-20">
+          <section className="mt-20">
         <h2 className="text-3xl font-bold">
           How It Works
         </h2>
 
         <ol className="mt-8 space-y-4">
-          <li>1. Upload PDF</li>
-          <li>2. Edit Document</li>
-          <li>3. Download PDF</li>
+          <li><span className="font-semibold">1. Upload PDF:</span> Select any PDF file from your device or cloud storage.</li>
+          <li><span className="font-semibold">2. Edit Document:</span> Use our intuitive toolbar to add text, images, signatures, or highlight sections directly on the page.</li>
+          <li><span className="font-semibold">3. Download PDF:</span> Instantly download your fully edited document with original formatting preserved.</li>
         </ol>
       </section>
 

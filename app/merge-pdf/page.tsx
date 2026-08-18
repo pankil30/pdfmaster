@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ToolLayout from "@/components/ToolLayout";
 import FileUpload from "@/components/FileUpload";
 import { Loader2 } from "lucide-react";
-import { useEffect } from "react";
 
 
 export default function MergePdfPage() {
@@ -37,8 +36,13 @@ export default function MergePdfPage() {
 
 
 
-            if (!res.ok) {
-                throw new Error("Failed to merge PDF");
+                 if (!res.ok) {
+                let errorMsg = "Failed to merge PDF.";
+                try {
+                    const errData = await res.json();
+                    if (errData?.error) errorMsg = errData.error;
+                } catch {}
+                throw new Error(errorMsg);
             }
             const blob = await res.blob();
 
@@ -71,8 +75,8 @@ export default function MergePdfPage() {
     useEffect(() => {
         if (countdown === null) return;
 
-        if (countdown === 0) {
-            window.location.href = "/download";
+            if (countdown === 0) {
+            window.open("/download", "_blank"); 
             return;
         }
 
@@ -88,14 +92,21 @@ export default function MergePdfPage() {
             description="Combine multiple PDF files into one document."
         >
             <div className="space-y-5">
-                <FileUpload
-                    accept=".pdf"
-                    onChange={(files) => {
-                        setFiles(files);
-                        setError("");
-                        setSuccess("");
-                    }}
-                />
+                              {files && files.length > 0 && (
+                    <div className="rounded-xl border bg-gray-50 p-4">
+                        <p className="mb-2 font-semibold text-gray-800">
+                            {files.length} file(s) selected:
+                        </p>
+                        <div className="flex flex-col gap-1 max-h-40 overflow-y-auto pr-2">
+                            {Array.from(files).map((file, index) => (
+                                <div key={index} className="flex items-center gap-2 text-sm text-gray-600">
+                                    <span className="text-red-500">📄</span>
+                                    {file.name}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
                 {success && (
                     <div className="rounded-xl border border-green-200 bg-green-50 p-4 text-green-700">
                         ✅ {success}
@@ -126,7 +137,7 @@ export default function MergePdfPage() {
                 </button>
 
             </div>
-            {/* ================= About Merge PDF ================= */}
+    
 
             <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
                 <h2 className="mb-5 text-3xl font-bold text-gray-900">
@@ -154,7 +165,7 @@ export default function MergePdfPage() {
                 </p>
             </section>
 
-            {/* ================= How It Works ================= */}
+         
 
             <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
                 <h2 className="mb-6 text-3xl font-bold">
@@ -206,7 +217,7 @@ export default function MergePdfPage() {
                 </div>
             </section>
 
-            {/* ================= Features ================= */}
+          
 
             <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -238,7 +249,7 @@ export default function MergePdfPage() {
 
             </section>
 
-            {/* ================= Benefits ================= */}
+
 
             <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -267,7 +278,7 @@ export default function MergePdfPage() {
 
             </section>
 
-            {/* ================= Security ================= */}
+      
 
             <section className="mt-12 rounded-xl border bg-blue-50 p-8">
 

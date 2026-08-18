@@ -162,7 +162,7 @@ useEffect(() => {
   )}
 </button>
             </div>
-            {/* ================= About Split PDF ================= */}
+  
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-5 text-3xl font-bold">
@@ -189,7 +189,7 @@ useEffect(() => {
   </p>
 </section>
 
-{/* ================= How It Works ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-6 text-3xl font-bold">
@@ -237,7 +237,7 @@ useEffect(() => {
   </div>
 </section>
 
-{/* ================= Features ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -287,7 +287,7 @@ Features
 
 </section>
 
-{/* ================= Benefits ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -314,7 +314,7 @@ the original document, ensuring professional-quality results every time.
 
 </section>
 
-{/* ================= Security ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-blue-50 p-8">
 

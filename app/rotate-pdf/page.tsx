@@ -154,7 +154,7 @@ export default function RotatePdfPage() {
                             : "Rotate PDF"}
                 </button>
             </div>
-            {/* ================= About Rotate PDF ================= */}
+       
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-5 text-3xl font-bold">
@@ -181,7 +181,7 @@ export default function RotatePdfPage() {
   </p>
 </section>
 
-{/* ================= How It Works ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-6 text-3xl font-bold">
@@ -233,7 +233,7 @@ export default function RotatePdfPage() {
   </div>
 </section>
 
-{/* ================= Features ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -283,7 +283,7 @@ Features
 
 </section>
 
-{/* ================= Benefits ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -311,7 +311,6 @@ corrected document within seconds.
 
 </section>
 
-{/* ================= Security ================= */}
 
 <section className="mt-12 rounded-xl bg-blue-50 p-8">
 
@@ -327,7 +326,7 @@ information.
 
 </section>
 
-{/* ================= FAQ ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 

@@ -143,7 +143,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Blog post URLs
+
   const blogUrls = blogPosts.map((post) => ({
     url: `https://www.masterpdf.in/blog/${post.slug}`,
     lastModified: new Date(post.date),
@@ -151,6 +151,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Combine all URLs
+
   return [...baseUrls, ...blogUrls];
 }

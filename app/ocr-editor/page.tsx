@@ -316,7 +316,7 @@ export default function OcrEditorPage() {
 
           </div>
         </div>
-        {/* ================= About OCR Text Editor ================= */}
+  
 
         <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
           <h2 className="mb-5 text-3xl font-bold text-gray-900 dark:text-white">
@@ -344,7 +344,7 @@ export default function OcrEditorPage() {
           </p>
         </section>
 
-        {/* ================= How It Works ================= */}
+  
 
         <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
 
@@ -398,7 +398,6 @@ export default function OcrEditorPage() {
 
         </section>
 
-        {/* ================= Features ================= */}
 
         <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
 
@@ -448,7 +447,7 @@ export default function OcrEditorPage() {
 
         </section>
 
-        {/* ================= Supported Images ================= */}
+
 
         <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
 
@@ -465,7 +464,7 @@ export default function OcrEditorPage() {
 
         </section>
 
-        {/* ================= Benefits ================= */}
+   
 
         <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
 
@@ -486,7 +485,7 @@ export default function OcrEditorPage() {
 
         </section>
 
-        {/* ================= Privacy ================= */}
+      
 
         <section className="mt-12 rounded-2xl bg-blue-50 p-8 dark:bg-zinc-800">
 
@@ -502,7 +501,7 @@ export default function OcrEditorPage() {
 
         </section>
 
-        {/* ================= FAQ ================= */}
+      
 
         <section className="mt-12 rounded-2xl border bg-white p-8 shadow-sm dark:bg-zinc-900 dark:border-zinc-800">
 

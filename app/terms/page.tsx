@@ -1,3 +1,13 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | PDFMaster",
+  description: "Read the Terms of Service for PDFMaster's online PDF tools, including acceptable use, liability, and user responsibilities.",
+  alternates: {
+    canonical: "https://www.masterpdf.in/terms",
+  },
+};
+
 export default function TermsPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-16">
@@ -5,12 +15,15 @@ export default function TermsPage() {
         Terms of Service
       </h1>
 
+      <p className="mt-4 text-sm text-gray-500">
+        Last updated: August 17, 2026
+      </p>
+
       <p className="mt-6 text-lg leading-8 text-gray-600">
-        Welcome to PDFMaster. These Terms of Service govern your use of
-        our website and online PDF tools. By accessing or using our
-        services, you agree to comply with these terms and all
-        applicable laws and regulations. If you do not agree with any
-        part of these Terms, you should discontinue using our website.
+        These Terms of Service govern your use of PDFMaster
+        (masterpdf.in) and its online PDF tools. By using this site,
+        you agree to these terms. If you don&apos;t agree, please
+        discontinue use of the site.
       </p>
 
       <div className="mt-12 space-y-10">
@@ -21,10 +34,10 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            By visiting PDFMaster or using any of our online tools, you
-            acknowledge that you have read, understood, and agreed to
-            these Terms of Service. These terms apply to all visitors,
-            users, and anyone accessing our website.
+            By visiting PDFMaster or using any of our tools, you
+            acknowledge that you&apos;ve read, understood, and agreed
+            to these Terms. They apply to all visitors and users of
+            the site.
           </p>
         </section>
 
@@ -34,11 +47,10 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            PDFMaster provides browser-based PDF utilities including
-            merging PDF files, splitting PDFs, rotating pages,
-            converting images into PDF documents, and other related
-            document-processing tools. Features may change or be
-            updated without prior notice.
+            PDFMaster provides browser-based PDF utilities, including
+            merging, splitting, compressing, rotating, and converting
+            PDF files, along with related document tools. Features may
+            be added, changed, or removed without prior notice.
           </p>
         </section>
 
@@ -48,10 +60,10 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            You must comply with all applicable laws when using our
-            services. If you are using PDFMaster on behalf of an
-            organization, you represent that you have authority to bind
-            that organization to these Terms.
+            You must comply with applicable laws when using PDFMaster.
+            If you&apos;re using the site on behalf of an organization,
+            you confirm you have authority to bind that organization to
+            these Terms.
           </p>
         </section>
 
@@ -62,10 +74,10 @@ export default function TermsPage() {
 
           <p className="mt-4 leading-8 text-gray-600">
             You agree not to use PDFMaster for unlawful purposes or to
-            upload files that violate copyright, privacy rights,
-            intellectual property rights, or applicable regulations.
-            Users must not attempt to disrupt, overload, reverse
-            engineer, or interfere with our systems.
+            process files that infringe copyright, privacy, or other
+            intellectual property rights. You also agree not to
+            attempt to disrupt, overload, reverse-engineer, or
+            otherwise interfere with our systems.
           </p>
         </section>
 
@@ -75,10 +87,9 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            You are solely responsible for the files you upload and
-            process through PDFMaster. You confirm that you own the
-            files or have permission to use and process them through
-            our platform.
+            You&apos;re solely responsible for the files you upload and
+            process. By using PDFMaster, you confirm you own the files
+            or have the right to process them through our tools.
           </p>
         </section>
 
@@ -88,10 +99,14 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            Uploaded documents are processed automatically to perform
-            the requested operation. Files may be temporarily stored
-            during processing and removed afterward according to our
-            Privacy Policy.
+            Uploaded files are processed automatically to perform the
+            operation you request. They may be temporarily stored
+            during processing and are removed afterward, as described
+            in our{" "}
+            <a href="/privacy-policy" className="underline">
+              Privacy Policy
+            </a>
+            .
           </p>
         </section>
 
@@ -101,10 +116,10 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            The PDFMaster website, design, branding, source code,
-            graphics, logos, and content are protected by copyright,
-            trademark, and other intellectual property laws. Users may
-            not copy or redistribute website content without written
+            The PDFMaster website — including its design, branding,
+            source code, and content — is protected by copyright,
+            trademark, and other intellectual property laws. You may
+            not copy or redistribute site content without written
             permission.
           </p>
         </section>
@@ -115,9 +130,9 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            We strive to keep PDFMaster available at all times, but we
-            cannot guarantee uninterrupted service. Maintenance,
-            upgrades, technical issues, or circumstances beyond our
+            We aim to keep PDFMaster available at all times but
+            can&apos;t guarantee uninterrupted service. Maintenance,
+            upgrades, technical issues, or circumstances outside our
             control may temporarily affect availability.
           </p>
         </section>
@@ -128,10 +143,10 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            Our website may integrate with or link to third-party
-            services such as analytics providers or advertising
-            networks. We are not responsible for the content or
-            practices of external websites or services.
+            PDFMaster may link to or integrate with third-party
+            services, such as analytics or advertising providers
+            (including Google AdSense). We&apos;re not responsible for
+            the content or practices of those external services.
           </p>
         </section>
 
@@ -141,10 +156,10 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            PDFMaster is provided on an "as is" and "as available"
-            basis. We make no warranties regarding uninterrupted
-            operation, accuracy, reliability, or suitability for any
-            specific purpose.
+            PDFMaster is provided &quot;as is&quot; and &quot;as
+            available.&quot; We make no warranties regarding
+            uninterrupted operation, accuracy, or fitness for any
+            particular purpose.
           </p>
         </section>
 
@@ -154,10 +169,10 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            To the maximum extent permitted by law, PDFMaster shall not
-            be liable for direct, indirect, incidental, consequential,
-            or special damages arising from the use or inability to use
-            our services, including data loss or business interruption.
+            To the maximum extent permitted by law, PDFMaster is not
+            liable for direct, indirect, incidental, or consequential
+            damages arising from use of — or inability to use — the
+            service, including data loss.
           </p>
         </section>
 
@@ -167,8 +182,11 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            Your use of PDFMaster is also governed by our Privacy
-            Policy, which explains how uploaded files and technical
+            Your use of PDFMaster is also governed by our{" "}
+            <a href="/privacy-policy" className="underline">
+              Privacy Policy
+            </a>
+            , which explains how uploaded files and technical
             information are handled.
           </p>
         </section>
@@ -179,11 +197,10 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            We reserve the right to modify, suspend, or discontinue any
-            part of our services without prior notice. We may also
-            revise these Terms of Service periodically. Continued use
-            of the website after changes become effective constitutes
-            acceptance of the revised Terms.
+            We may modify, suspend, or discontinue any part of the
+            service without prior notice, and may revise these Terms
+            periodically. Continued use after changes take effect
+            means you accept the revised Terms.
           </p>
         </section>
 
@@ -193,10 +210,9 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            These Terms shall be governed by applicable laws in the
-            jurisdiction where PDFMaster operates. Any disputes shall
-            be resolved according to those applicable laws and
-            regulations.
+            These Terms are governed by the laws of India, and any
+            disputes arising from use of this site will be subject to
+            the jurisdiction of Indian courts.
           </p>
         </section>
 
@@ -206,10 +222,11 @@ export default function TermsPage() {
           </h2>
 
           <p className="mt-4 leading-8 text-gray-600">
-            If you have questions regarding these Terms of Service,
-            please contact our support team through the Contact page.
-            We appreciate your feedback and are committed to providing
-            reliable online PDF tools for users worldwide.
+            Questions about these Terms? Reach us through the{" "}
+            <a href="/contact" className="underline">
+              Contact page
+            </a>
+            .
           </p>
         </section>
 

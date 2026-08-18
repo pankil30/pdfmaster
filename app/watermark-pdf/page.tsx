@@ -130,7 +130,7 @@ export default function WatermarkPdfPage() {
               : "Add Watermark"}
         </button>
       </div>
-      {/* ================= About Watermark PDF ================= */}
+     
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-5 text-3xl font-bold">
@@ -157,7 +157,6 @@ export default function WatermarkPdfPage() {
   </p>
 </section>
 
-{/* ================= How It Works ================= */}
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -211,7 +210,7 @@ Download your newly watermarked PDF instantly.
 
 </section>
 
-{/* ================= Features ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -261,7 +260,7 @@ Features
 
 </section>
 
-{/* ================= Benefits ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -289,7 +288,7 @@ quality, including fonts, images, tables, charts, and page formatting.
 
 </section>
 
-{/* ================= Common Uses ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -311,7 +310,7 @@ Common Watermark Examples
 
 </section>
 
-{/* ================= Security ================= */}
+
 
 <section className="mt-12 rounded-xl bg-blue-50 p-8">
 
@@ -327,7 +326,7 @@ your personal and business documents safe.
 
 </section>
 
-{/* ================= FAQ ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 

@@ -32,7 +32,13 @@ export default function CompressPdfPage() {
       });
 
       if (!res.ok) {
-        throw new Error();
+        // FIXED: Try to read the actual error message from the backend
+        let errorMsg = "Failed to compress PDF.";
+        try {
+          const errData = await res.json();
+          if (errData?.error) errorMsg = errData.error;
+        } catch {}
+        throw new Error(errorMsg);
       }
 
       const blob = await res.blob();
@@ -43,7 +49,6 @@ export default function CompressPdfPage() {
         ""
       )}-compressed.pdf`;
 
-      // Trigger download immediately to avoid relying on sessionStorage/blob URLs
       const a = document.createElement("a");
       a.href = blobUrl;
       a.download = downloadName;
@@ -55,9 +60,11 @@ export default function CompressPdfPage() {
       setTimeout(() => URL.revokeObjectURL(blobUrl), 60_000);
 
       setLoading(false);
-      setCountdown(null);
-    } catch {
-      setError("Failed to compress PDF.");
+      
+      // FIXED: Start the 5-second countdown so the user gets redirected to /download!
+      setCountdown(5); 
+    } catch (err: any) {
+      setError(err.message || "Failed to compress PDF.");
       setLoading(false);
     }
   };
@@ -68,7 +75,7 @@ export default function CompressPdfPage() {
     const timer = setTimeout(() => {
       setCountdown((prev) => {
         if (prev === 1) {
-          window.location.href = "/download";
+        window.open("/download", "_blank");
           return 0;
         }
 
@@ -113,7 +120,6 @@ export default function CompressPdfPage() {
               : "Compress PDF"}
         </button>
       </div>
-      {/* ================= About Compress PDF ================= */}
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-5 text-3xl font-bold">
@@ -141,7 +147,6 @@ export default function CompressPdfPage() {
   </p>
 </section>
 
-{/* ================= How It Works ================= */}
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -195,7 +200,6 @@ Download your compressed PDF.
 
 </section>
 
-{/* ================= Features ================= */}
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -245,7 +249,6 @@ Features
 
 </section>
 
-{/* ================= Benefits ================= */}
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -273,7 +276,6 @@ quality and file size.
 
 </section>
 
-{/* ================= Common Uses ================= */}
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -291,7 +293,6 @@ Common Uses
 
 </section>
 
-{/* ================= Security ================= */}
 
 <section className="mt-12 rounded-xl bg-blue-50 p-8">
 
@@ -307,7 +308,6 @@ documents, helping keep your personal and business information protected.
 
 </section>
 
-{/* ================= FAQ ================= */}
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 

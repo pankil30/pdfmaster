@@ -1,4 +1,3 @@
-
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-16">
@@ -7,157 +6,105 @@ export default function AboutPage() {
       </h1>
 
       <p className="mt-6 text-lg leading-8 text-gray-600">
-        PDFMaster is a modern online PDF toolkit created to simplify
-        document management for users around the world. Our platform
-        provides free and easy-to-use PDF tools that allow anyone to
-        merge, split, rotate, and convert PDF files directly from a
-        web browser without installing software or creating an account.
-      </p>
-
-      <p className="mt-4 leading-8 text-gray-600">
-        Every day, thousands of people work with PDF documents for
-        education, business, government, and personal use. Our goal is
-        to make those tasks easier by providing reliable online tools
-        that save time while maintaining simplicity and security.
+        PDFMaster is a browser-based PDF toolkit built for one simple
+        reason: everyday PDF tasks — merging a few files, shrinking one
+        for email, pulling out a couple of pages — shouldn&apos;t
+        require installing software or paying for a subscription you&apos;ll
+        use twice a year. Upload a file, run the tool, download the
+        result. That&apos;s the whole idea.
       </p>
 
       <div className="mt-12 space-y-10">
         <section>
           <h2 className="text-2xl font-semibold">
-            Who We Are
+            Why We Built This
           </h2>
-
           <p className="mt-4 leading-8 text-gray-600">
-            PDFMaster was built for students, professionals,
-            freelancers, teachers, businesses, and anyone who works
-            with digital documents. We believe powerful PDF tools
-            should be available to everyone without expensive software
-            subscriptions.
-          </p>
-
-          <p className="mt-4 leading-8 text-gray-600">
-            Our team focuses on creating fast and user-friendly
-            solutions that work across desktop computers, tablets, and
-            mobile devices.
+            Most desktop PDF software is either expensive, bloated with
+            features nobody uses, or locked behind a trial that expires
+            right when you need it most. We wanted something that
+            opens in a browser tab, does one job well, and gets out of
+            your way. PDFMaster started as a small set of tools —
+            merge and split — and has grown from there based on what
+            people actually asked for.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold">
-            Our Mission
+            Who Uses PDFMaster
           </h2>
-
           <p className="mt-4 leading-8 text-gray-600">
-            Our mission is to provide secure and accessible online PDF
-            services that help users manage documents quickly and
-            efficiently. We continuously improve our platform to offer
-            better performance and an excellent user experience.
+            Students combining scanned assignment pages before
+            submission. Job seekers compressing a resume that&apos;s
+            just over an upload limit. Small business owners merging
+            invoices and receipts for their accountant. Teachers
+            splitting one scanned answer sheet into files per student.
+            None of these are complicated jobs — they just needed a
+            tool that didn&apos;t make them create an account first.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold">
-            What We Offer
+            What&apos;s Available Right Now
           </h2>
-
           <ul className="mt-4 list-disc pl-6 space-y-2 text-gray-600">
-            <li>Merge multiple PDF files into a single document.</li>
-            <li>Split large PDF files into smaller documents.</li>
-            <li>Rotate PDF pages with one click.</li>
-            <li>Convert images into PDF format.</li>
-            <li>Fast browser-based processing.</li>
-            <li>No software installation required.</li>
-            <li>No account registration required.</li>
-            <li>Works on Windows, macOS, Linux, Android, and iPhone.</li>
+            <li>Merge, split, compress, and rotate PDF files</li>
+            <li>Convert images to PDF and PDF pages to images</li>
+            <li>Add text, signatures, or watermarks to a document</li>
+            <li>Remove or extract specific pages</li>
+            <li>Password-protect a PDF or remove an existing password</li>
+            <li>Basic OCR to make scanned pages searchable</li>
           </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold">
-            Why Choose PDFMaster?
-          </h2>
-
           <p className="mt-4 leading-8 text-gray-600">
-            We focus on simplicity, speed, and reliability. Our tools
-            are designed so that anyone can process PDF files without
-            technical knowledge. The interface is clean and responsive,
-            allowing users to complete document tasks within seconds.
-          </p>
-
-          <p className="mt-4 leading-8 text-gray-600">
-            We continually optimize our platform to improve processing
-            speed and support modern browsers while maintaining a
-            simple user experience.
+            Everything runs in the browser on desktop and mobile, with
+            no account required for standard use.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold">
-            Privacy & Security
+            How We Handle Your Files
           </h2>
-
           <p className="mt-4 leading-8 text-gray-600">
-            Protecting user privacy is one of our highest priorities.
-            Uploaded files are processed temporarily to perform the
-            requested task and are automatically removed after
-            processing. We do not permanently store your documents.
-          </p>
-
-          <p className="mt-4 leading-8 text-gray-600">
-            We continuously work to improve security practices and
-            provide a safe environment for document management.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold">
-            Our Vision
-          </h2>
-
-          <p className="mt-4 leading-8 text-gray-600">
-            We aim to become one of the leading online PDF platforms by
-            delivering free, secure, and high-quality document tools
-            that help users improve productivity across education,
-            business, and everyday life.
+            Files you upload are used only to run the tool you selected
+            — merging, compressing, converting, whatever the task is —
+            and are deleted from our servers shortly afterward. We
+            don&apos;t open, read, or share the contents of your
+            documents. Full details are in our{" "}
+            <a href="/privacy-policy" className="underline">
+              Privacy Policy
+            </a>
+            .
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold">
-            Continuous Innovation
+            What&apos;s Next
           </h2>
-
           <p className="mt-4 leading-8 text-gray-600">
-            Technology changes rapidly, and so do user needs. PDFMaster
-            is committed to adding new features, improving existing
-            tools, and expanding support for more document management
-            capabilities in the future.
+            We&apos;re working through a list of requested tools and
+            improvements — better mobile handling for large files,
+            batch processing, and a few more conversion formats are
+            next up. If there&apos;s a tool you keep needing and can&apos;t
+            find here, tell us — that&apos;s usually how the next one
+            gets built.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold">
-            Our Commitment
+            Get in Touch
           </h2>
-
           <p className="mt-4 leading-8 text-gray-600">
-            We are committed to providing a fast, secure, and reliable
-            service that users can trust. Every update we make is aimed
-            at improving performance, usability, and customer
-            satisfaction.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold">
-            Contact Us
-          </h2>
-
-          <p className="mt-4 leading-8 text-gray-600">
-            If you have questions, suggestions, or feedback about
-            PDFMaster, please visit our Contact page. We appreciate
-            every message and are always looking for ways to improve
-            our platform and provide a better experience for our users.
+            Questions, bug reports, or a tool you wish existed — reach
+            us through the{" "}
+            <a href="/contact" className="underline">
+              Contact page
+            </a>
+            . We read everything that comes in.
           </p>
         </section>
       </div>

@@ -85,7 +85,7 @@ export default function PdfInfoPage() {
           </div>
         )}
       </div>
-      {/* ================= About PDF Information ================= */}
+   
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-5 text-3xl font-bold">
@@ -111,7 +111,7 @@ export default function PdfInfoPage() {
   </p>
 </section>
 
-{/* ================= How It Works ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
   <h2 className="mb-6 text-3xl font-bold">
@@ -159,7 +159,7 @@ export default function PdfInfoPage() {
   </div>
 </section>
 
-{/* ================= Features ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -209,7 +209,7 @@ Features
 
 </section>
 
-{/* ================= Benefits ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 
@@ -236,7 +236,7 @@ keeping your files secure and private.
 
 </section>
 
-{/* ================= Privacy ================= */}
+
 
 <section className="mt-12 rounded-xl bg-blue-50 p-8">
 
@@ -252,7 +252,7 @@ your document details.
 
 </section>
 
-{/* ================= FAQ ================= */}
+
 
 <section className="mt-12 rounded-xl border bg-white p-8 shadow-sm">
 

@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "PDFMaster - Free Online PDF Tools",
     description: "Merge, Split, Rotate and Convert PDFs online for free.",
     type: "website",
-    // FIXED: was "https://your-domain.com" placeholder
+   
     url: "https://www.masterpdf.in",
     siteName: "PDFMaster",
   },
