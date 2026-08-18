@@ -81,7 +81,6 @@ export default function Footer() {
               <div className="mt-3 flex flex-col gap-2 text-sm text-gray-600">
                 <Link href="/image-to-pdf" className="hover:text-red-500">Image to PDF</Link>
                 <Link href="/pdf-to-image" className="hover:text-red-500">PDF to Image</Link>
-                <Link href="/pdf-to-word" className="hover:text-red-500">PDF to Word</Link>
               </div>
             </div>
 
