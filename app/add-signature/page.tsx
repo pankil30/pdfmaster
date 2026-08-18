@@ -83,15 +83,15 @@ export default function AddSignaturePage() {
 
         const pdfBytes = await pdfDoc.save();
 
-const blob = new Blob(
-    [new Uint8Array(pdfBytes)],
-    {
-        type: "application/pdf",
-    }
-);
+// Convert PDF bytes to a proper ArrayBuffer
+const pdfBuffer = new ArrayBuffer(outBytes.byteLength);
+new Uint8Array(pdfBuffer).set(outBytes);
 
-        const url = URL.createObjectURL(blob);
+const blob = new Blob([pdfBuffer], {
+  type: "application/pdf",
+});
 
+const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
         a.download = "signed.pdf";
