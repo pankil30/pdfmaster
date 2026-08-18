@@ -38,8 +38,8 @@ export default function AddTextPage() {
   const [pdfBytes, setPdfBytes] = useState<ArrayBuffer | null>(null);
   const [numPages, setNumPages] = useState(0);
   const [pageNum, setPageNum] = useState(1);
-  
-  const [pageDimensions, setPageDimensions] = useState<Record<number, {width: number, height: number}>>({});
+
+  const [pageDimensions, setPageDimensions] = useState<Record<number, { width: number, height: number }>>({});
   const [textItems, setTextItems] = useState<TextItem[]>([]);
   const pageRef = useRef<HTMLDivElement>(null);
 
@@ -72,14 +72,14 @@ export default function AddTextPage() {
   const removeText = (id: string) =>
     setTextItems((prev) => prev.filter((i) => i.id !== id));
 
-useEffect(() => {
-  (async () => {
-    const { pdfjs } = await import("react-pdf");
+  useEffect(() => {
+    (async () => {
+      const { pdfjs } = await import("react-pdf");
 
-    pdfjs.GlobalWorkerOptions.workerSrc =
-      `https://unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
-  })();
-}, []);
+      pdfjs.GlobalWorkerOptions.workerSrc =
+        `https://unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
+    })();
+  }, []);
 
   const handleDownload = async () => {
     if (!pdfBytes) return;
@@ -91,9 +91,9 @@ useEffect(() => {
       const page = pages[item.page - 1];
       if (!page) return;
       // Important: Use the pageDimensions map (see Step 1 below)
-      const dims = pageDimensions[item.page]; 
-      if (!dims) return; 
-      
+      const dims = pageDimensions[item.page];
+      if (!dims) return;
+
       const scaleX = page.getWidth() / dims.width;
       const scaleY = page.getHeight() / dims.height;
       page.drawText(item.text, {
@@ -105,12 +105,11 @@ useEffect(() => {
       });
     });
 
-    // --- FIX START: No .slice().buffer ---
     const outBytes = await pdfDoc.save();
+    const pdfBuffer = new Uint8Array(outBytes.length);
+    pdfBuffer.set(outBytes);
 
-    // Modern browsers accept Uint8Array directly in Blob. No cast needed.
-    const blob = new Blob([outBytes], { type: "application/pdf" });
-    // --- FIX END ---
+    const blob = new Blob([pdfBuffer], { type: "application/pdf" });
 
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -163,11 +162,11 @@ useEffect(() => {
             style={{ cursor: "crosshair" }}
           >
             <Document file={pdfFile} onLoadSuccess={(d) => setNumPages(d.numPages)}>
-                           <Page
+              <Page
                 pageNumber={pageNum}
-                onLoadSuccess={(p) => setPageDimensions((prev) => ({ 
-                  ...prev, 
-                  [pageNum]: { width: p.width, height: p.height } 
+                onLoadSuccess={(p) => setPageDimensions((prev) => ({
+                  ...prev,
+                  [pageNum]: { width: p.width, height: p.height }
                 }))}
                 renderAnnotationLayer={false}
                 renderTextLayer={false}
