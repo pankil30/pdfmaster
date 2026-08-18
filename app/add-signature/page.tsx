@@ -83,10 +83,12 @@ export default function AddSignaturePage() {
 
         const pdfBytes = await pdfDoc.save();
 
-        // FIXED: Simplified Blob creation (removed redundant ArrayBuffer logic)
-        const blob = new Blob([pdfBytes], {
-            type: "application/pdf",
-        });
+const blob = new Blob(
+    [new Uint8Array(pdfBytes)],
+    {
+        type: "application/pdf",
+    }
+);
 
         const url = URL.createObjectURL(blob);
 
